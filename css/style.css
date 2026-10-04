@@ -524,8 +524,8 @@ img, video {
    No arrows or counters — the bright thumbnail and its marker show where you are. */
 .reader__hint {
   margin-bottom: 16px;
-  font: 400 15px/1.4 var(--sans);
-  color: var(--muted);
+  font: 400 18px/1.4 var(--sans);
+  color: #fc6c60; /* Voibook logo orange — this invitation matters */
 }
 
 /* the instruction matches the device: mouse/trackpad vs touch screen */

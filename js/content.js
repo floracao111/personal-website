@@ -341,14 +341,14 @@ window.PROJECTS = [
   {
     slug: 'asapoop',
     title: 'ASAPoop',
-    blurb: 'Ride a bike to deliver toilets on demand',
+    blurb: "What if one day, you could order a toilet just like you order a ride?",
     tags: ['Interactive Game', 'Physical Computing', 'Alt Controller'],
     summary:
       'What if one day, you could order a toilet just like you order a ride? </br> ASAPoop is an interactive game where players ride a stationary bike to deliver mobile toilets in the city. Built with a bike and a toilet combined with Arduino and Unity, the game uses bike riding as an alt controller for a toilet delivery service.',
     meta: {
       Year: '2025',
       Medium: 'Portable toilet, old bike, bike trainer, tachometer, bike bell, Arduino, motor, wood, 3D prints, Unity interactive game',
-      Role: 'Concept development, Arduino & hardware fabrication, video, visual identity',
+      Role: 'Concept, Arduino & hardware fabrication, video, visual identity',
       Collaborators:
         'Jiazhen Luo: Arduino & Hardware Fabrication, Daniel Meng: Game Development, Mere Cui: Game Illustration',
     },
@@ -516,9 +516,9 @@ window.PROJECTS = [
   {
     slug: 'light-senses-light',
     title: 'Light Senses Light',
-    // blurb: 'Placeholder description',
+    blurb: 'Light sculpture that responds to other lights',
     tags: ['Installation', '3D Printing'],
-    // summary: 'Placeholder summary for Light Senses Light.',
+    summary: 'Light sculpture that responds to other lights.',
     meta: { Year: '2024', Medium: '3D prints, servo motors, Arduino' },
     cover: { src: 'assets/projects/light-senses-light/web/auto-lamp.mp4', poster: 'assets/projects/light-senses-light/web/auto-lamp-poster.jpg' },
     sections: [
@@ -535,9 +535,9 @@ window.PROJECTS = [
   {
     slug: 'cell',
     title: 'Cell',
-    // blurb: 'Placeholder description',
+    blurb: 'An android cell',
     tags: ['Installation'],
-    // summary: ' ',
+    summary: 'An android cell.',
     meta: { Year: '2024', Medium: 'Vinyl tubes, balloon, plastic globe, steel electrical box, water, hex nuts, resistors, water pump, Arduino' },
     cover: { src: 'assets/projects/cell/web/cover.mp4', poster: 'assets/projects/cell/web/cover-poster.jpg' },
     hero: { src: 'assets/projects/cell/web/cover-vid1.mp4', poster: 'assets/projects/cell/web/cover-vid1-poster.jpg' },
