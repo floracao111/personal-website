@@ -175,7 +175,7 @@ window.PROJECTS = [
       Status: 'In progress',
       Follows: { text: 'CuedData', href: 'project.html?p=cueddata' },
     },
-    logo: 'assets/projects/cuedkit/web/cuedkit-logo.svg',
+    logo: 'assets/projects/cuedkit/web/cuedkit-logo-color.svg',
     cover: { src: 'assets/projects/cuedkit/web/cover.mp4', poster: 'assets/projects/cuedkit/web/cover-poster.jpg' },
     hero: [
       { src: 'assets/projects/cuedkit/web/cover-vid.mp4', poster: 'assets/projects/cuedkit/web/cover-vid-poster.jpg', ratio: '4 / 3', alt: 'CuedKit hand moving' },
@@ -237,8 +237,8 @@ window.PROJECTS = [
         columns: 3,
         media: [
           { src: 'assets/projects/cuedkit/web/iterations2.jpg', ratio: '4 / 3', caption: 'Iterations' },
-          { src: 'assets/projects/cuedkit/web/index-open.jpg', ratio: '4 / 3', caption: 'Index finger open' },
-          { src: 'assets/projects/cuedkit/web/index-close.jpg', ratio: '4 / 3', caption: 'Index finger closed' },
+          { src: 'assets/projects/cuedkit/web/index-open.jpg?v=2', ratio: '4 / 3', caption: 'Index finger open' },
+          { src: 'assets/projects/cuedkit/web/index-close.jpg?v=2', ratio: '4 / 3', caption: 'Index finger closed' },
         ],
       },
       {
@@ -246,9 +246,9 @@ window.PROJECTS = [
         text: 'Step-by-step tutorials like these will live on the CuedKit website.',
         columns: 3,
         media: [
-          { src: 'assets/projects/cuedkit/web/tutorial1.mp4', poster: 'assets/projects/cuedkit/web/tutorial1-poster.jpg', ratio: '16 / 9', caption: 'Step 1' },
-          { src: 'assets/projects/cuedkit/web/tutorial2.mp4', poster: 'assets/projects/cuedkit/web/tutorial2-poster.jpg', ratio: '16 / 9', caption: 'Step 2' },
-          { src: 'assets/projects/cuedkit/web/tutorial3.mp4', poster: 'assets/projects/cuedkit/web/tutorial3-poster.jpg', ratio: '16 / 9', caption: 'Step 3' },
+          { src: 'assets/projects/cuedkit/web/tutorial1.mp4', poster: 'assets/projects/cuedkit/web/tutorial1-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/cuedkit/web/tutorial2.mp4', poster: 'assets/projects/cuedkit/web/tutorial2-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/cuedkit/web/tutorial3.mp4', poster: 'assets/projects/cuedkit/web/tutorial3-poster.jpg', ratio: '16 / 9' },
         ],
       },
       {
@@ -518,7 +518,7 @@ window.PROJECTS = [
     tags: ['Installation', '3D Printing'],
     summary: 'Light sculpture responding to other lights.',
     meta: { Year: '2024', Medium: '3D prints, servo motors, Arduino' },
-    cover: { src: 'assets/projects/light-senses-light/web/auto-lamp.mp4', poster: 'assets/projects/light-senses-light/web/auto-lamp-poster.jpg' },
+    cover: { src: 'assets/projects/light-senses-light/web/cover.mp4', poster: 'assets/projects/light-senses-light/web/cover-poster.jpg' },
     sections: [
       {
         columns: 3,
@@ -622,6 +622,14 @@ window.PROJECTS = [
     cover: { src: 'assets/projects/tied/web/cover.mp4', poster: 'assets/projects/tied/web/cover-poster.jpg' },
     hero: { src: 'assets/projects/tied/web/vid1.mp4', poster: 'assets/projects/tied/web/vid1-poster.jpg' },
     sections: [
+      {
+        columns: 'row',
+        media: [
+          { src: 'assets/projects/tied/web/amazon1.png', ratio: '1582 / 1328', alt: 'Amazon order history' },
+          { src: 'assets/projects/tied/web/amazon2.png', ratio: '1478 / 1412', alt: 'Amazon order history' },
+          { src: 'assets/projects/tied/web/amazon3.png', ratio: '1656 / 1324', alt: 'Amazon order history' },
+        ],
+      },
       {
         columns: 1,
         media: [
