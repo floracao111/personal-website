@@ -83,8 +83,7 @@ window.PROJECTS = [
     ],
     blurb: 'Robotic gestures synced with speech, generating AI training data',
     tags: ['Robotics', 'Automation', 'AI Database', 'Assistive Technology'],
-    summary:
-      'An automated system for generating standardized video data by synchronizing robotic gestures with spoken language. Designed for AI recognition training and speech education.',
+    summary: 'An automated robotic system for generating standardized Cued Speech video data.',
     meta: {
       Timeline: 'Mar – July 2026',
       Role: 'Designer & Developer',
@@ -99,6 +98,12 @@ window.PROJECTS = [
       src: 'assets/projects/cueddata/web/production-page-demo.mp4?v=2',
       poster: 'assets/projects/cueddata/web/production-page-demo-poster.jpg?v=2',
       position: 'left', // keep the robot hand in the 3:2 homepage crop
+    },
+    intro: {
+      text: [
+        'While Cued Speech has demonstrated educational value internationally, Mandarin Cued Speech remains underrepresented in AI research due to the lack of large-scale, standardized datasets.',
+        'Commissioned by Voibook, a hearing-accessibility technology company in China, I developed CuedData to automate the generation of standardized Mandarin Cued Speech recordings for AI recognition training and future speech education.',
+      ],
     },
     // Portfolio pages — made with: zsh scripts/normalize-pages.sh <folder of page images> assets/projects/cueddata/web/pages
     hero: {
@@ -160,7 +165,7 @@ window.PROJECTS = [
     slug: 'cuedkit',
     title: 'CuedKit',
     status: 'In progress', // shown on the homepage cover and at the top of the project page
-    blurb: 'An open-source robotic hand kit for teaching Cued Speech',
+    blurb: 'An easy, open-source robotic hand kit for education and research',
     tags: ['Robotics', 'Open Source', 'Physical Computing', 'Assistive Technology'],
     summary:
       'A low-cost, open-source robotic hand kit that is easy to print, assemble and program, and dexterous enough to form Cued Speech handshapes. The next step after CuedData.',
@@ -289,7 +294,7 @@ window.PROJECTS = [
   {
     slug: 'literal-language-machine',
     title: 'Literal Language Machine (LLM)',
-    blurb: 'A robotic arm that picks up bolts and nuts like tokens',
+    blurb: 'Little worker picking out tokens all day',
     tags: ['Robotics', 'AI', 'Installation'],
     summary:
       'A robotic arm simulating the behavior of large language models with an unthinking nature as it picks up bolts and nuts like tokens, representing the way AI systems process language. </br> </br> I imagined ChatGPT to be a little worker who spends all day picking up bolts and nuts, just like how a large language model picks out tokens. </br>  </br> An OpenAI API powered interface allows audience to chat with the little worker, and control the temperature setting.',
@@ -415,54 +420,47 @@ window.PROJECTS = [
     ],
   },
   {
-    slug: 'synapses',
-    title: 'Synapses',
-    blurb: 'Memory and attention in the organic and artificial mind',
-    tags: ['Installation', '3D Environments', 'Projection Mapping'],
-    summary:
-      'How do memory and attention deteriorate over time in both the organic and artificial mind?',
+    slug: 'heated-machines',
+    title: 'Heated Machines',
+    blurb: 'Steel, heat and the human body',
+    tags: ['Installation', 'Video'],
+    // summary:
+    //   'Steel and the human body are two powerful forces that shaped industrialization. This era saw human strength and labor driving the transformation of the world. This work reflects on how this period marked a shift in the Anthropocene, defined by the physical efforts of humanity.',
     meta: {
       Year: '2024',
-      Medium: 'Metal, plaster, wires, 3D environments, sound, projection mapping',
-      Duration: '05:26',
-      'My role': 'Fabrication, Unity 3D environment design',
-      Collaborator: 'Ryan Elgin: metal fabrication, sound, projection mapping',
+      Medium: 'Stainless steel, synthetic hair, indoor heater, projection mapping',
     },
-    cover: { src: 'assets/projects/synapses/web/img_9723.jpg' },
-    hero: { embed: 'https://player.vimeo.com/video/1019055871?h=f6af766b76', alt: 'Synapses — project video' },
+    cover: { src: 'assets/projects/heated-machines/web/heated2.jpg' },
+    hero: false,
     sections: [
-      {
-        label: 'Fabrication',
+            {
         columns: 3,
         media: [
-          { src: 'assets/projects/synapses/web/img_9334.mp4', poster: 'assets/projects/synapses/web/img_9334-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/synapses/web/img_9329.mp4', poster: 'assets/projects/synapses/web/img_9329-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/synapses/web/img_9184.mp4', poster: 'assets/projects/synapses/web/img_9184-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/heated-machines/web/heated1.jpg', ratio: '4 / 3' },
+          { src: 'assets/projects/heated-machines/web/heated2.jpg', ratio: '4 / 3' },
+          { src: 'assets/projects/heated-machines/web/heated5.jpg', ratio: '4 / 3' },
         ],
       },
+      
       {
-        label: '3D environments (Unity)',
+        label: 'Ideation',
+        text: [
+          'Massive factories and the physical labor shaped an era of transformation. The raw strength and versatility of steel and the human body is incredibly attractive.',
+          'The projection combines black-and-white visuals of the human body and steel, distorted to highlight their shared strength and structure.',
+        ],
         columns: 'row',
         media: [
-          { src: 'assets/projects/synapses/web/img_9367.mp4', poster: 'assets/projects/synapses/web/img_9367-poster.jpg', ratio: '9 / 16' },
-          { src: 'assets/projects/synapses/web/scene-1-and-pathway.mp4', poster: 'assets/projects/synapses/web/scene-1-and-pathway-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/synapses/web/messy-computer-scene.mp4', poster: 'assets/projects/synapses/web/messy-computer-scene-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/heated-machines/web/inspo-photo-of-historical-labor.png', ratio: '1151 / 2400', alt: 'Inspiration: historical photos of factory labor', caption: 'Inspo' },
+          { src: 'assets/projects/heated-machines/web/images-of-body-for-my-projection.png', ratio: '2400 / 1730', alt: 'Images of the body and steel used in the projection', caption: 'Projection images' },
         ],
       },
       {
-        label: 'Projection mapping',
-        columns: 'row',
+        text: 'The heat immerses viewers in the intensity of industrialization as they approach.',
+        columns: 3,
         media: [
-          { src: 'assets/projects/synapses/web/img_9490.mp4', poster: 'assets/projects/synapses/web/img_9490-poster.jpg', ratio: '9 / 16' },
-          { src: 'assets/projects/synapses/web/img_9383.mp4', poster: 'assets/projects/synapses/web/img_9383-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/synapses/web/img_9394.mp4', poster: 'assets/projects/synapses/web/img_9394-poster.jpg', ratio: '16 / 9' },
-        ],
-      },
-      {
-        columns: 2,
-        media: [
-          { src: 'assets/projects/synapses/web/untitled2.jpg', ratio: '3 / 4' },
-          { src: 'assets/projects/synapses/web/untitled1.jpg', ratio: '3 / 4' },
+          { src: 'assets/projects/heated-machines/web/img_0609.mp4', poster: 'assets/projects/heated-machines/web/img_0609-poster.jpg', ratio: '9 / 16' },
+          { src: 'assets/projects/heated-machines/web/img_0612.mp4', poster: 'assets/projects/heated-machines/web/img_0612-poster.jpg', ratio: '9 / 16' },
+          { src: 'assets/projects/heated-machines/web/img_0691.mp4', poster: 'assets/projects/heated-machines/web/img_0691-poster.jpg', ratio: '9 / 16' },
         ],
       },
     ],
@@ -516,9 +514,9 @@ window.PROJECTS = [
   {
     slug: 'light-senses-light',
     title: 'Light Senses Light',
-    blurb: 'Light sculpture that responds to other lights',
+    blurb: 'Light sculpture responding to other lights',
     tags: ['Installation', '3D Printing'],
-    summary: 'Light sculpture that responds to other lights.',
+    summary: 'Light sculpture responding to other lights.',
     meta: { Year: '2024', Medium: '3D prints, servo motors, Arduino' },
     cover: { src: 'assets/projects/light-senses-light/web/auto-lamp.mp4', poster: 'assets/projects/light-senses-light/web/auto-lamp-poster.jpg' },
     sections: [
@@ -559,47 +557,53 @@ window.PROJECTS = [
     ],
   },
   {
-    slug: 'heated-machines',
-    title: 'Heated Machines',
-    blurb: 'Steel, heat and the human body',
-    tags: ['Installation', 'Video'],
-    // summary:
-    //   'Steel and the human body are two powerful forces that shaped industrialization. This era saw human strength and labor driving the transformation of the world. This work reflects on how this period marked a shift in the Anthropocene, defined by the physical efforts of humanity.',
+    slug: 'synapses',
+    title: 'Synapses',
+    blurb: 'How do memory and attention deteriorate',
+    tags: ['Installation', '3D Environments', 'Projection Mapping'],
+    summary:
+      'How do memory and attention deteriorate over time in both the organic and artificial mind?',
     meta: {
       Year: '2024',
-      Medium: 'Stainless steel, synthetic hair, indoor heater, video',
+      Medium: 'Metal, plaster, wires, 3D environments, sound, projection mapping',
+      Duration: '05:26',
+      'My role': 'Fabrication, Unity 3D environment design',
+      Collaborator: 'Ryan Elgin: metal fabrication, sound, projection mapping',
     },
-    cover: { src: 'assets/projects/heated-machines/web/heated1.jpg' },
-    hero: false,
+    cover: { src: 'assets/projects/synapses/web/img_9723.jpg' },
+    hero: { embed: 'https://player.vimeo.com/video/1019055871?h=f6af766b76', alt: 'Synapses — project video' },
     sections: [
-            {
+      {
         columns: 3,
         media: [
-          { src: 'assets/projects/heated-machines/web/heated1.jpg', ratio: '4 / 3' },
-          { src: 'assets/projects/heated-machines/web/heated2.jpg', ratio: '4 / 3' },
-          { src: 'assets/projects/heated-machines/web/heated5.jpg', ratio: '4 / 3' },
+          { src: 'assets/projects/synapses/web/img_9334.mp4', poster: 'assets/projects/synapses/web/img_9334-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/synapses/web/img_9329.mp4', poster: 'assets/projects/synapses/web/img_9329-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/synapses/web/img_9184.mp4', poster: 'assets/projects/synapses/web/img_9184-poster.jpg', ratio: '16 / 9' },
         ],
       },
-      
       {
-        label: 'Ideation',
-        text: [
-          'Massive factories and the physical labor shaped an era of transformation. The raw strength and versatility of steel and the human body is incredibly attractive.',
-          'The projection combines black-and-white visuals of the human body and steel, distorted to highlight their shared strength and structure.',
-        ],
+        label: '3D environments (Unity)',
         columns: 'row',
         media: [
-          { src: 'assets/projects/heated-machines/web/inspo-photo-of-historical-labor.png', ratio: '1151 / 2400', alt: 'Inspiration: historical photos of factory labor' },
-          { src: 'assets/projects/heated-machines/web/images-of-body-for-my-projection.png', ratio: '2400 / 1730', alt: 'Images of the body and steel used in the projection' },
+          { src: 'assets/projects/synapses/web/img_9367.mp4', poster: 'assets/projects/synapses/web/img_9367-poster.jpg', ratio: '9 / 16' },
+          { src: 'assets/projects/synapses/web/scene-1-and-pathway.mp4', poster: 'assets/projects/synapses/web/scene-1-and-pathway-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/synapses/web/messy-computer-scene.mp4', poster: 'assets/projects/synapses/web/messy-computer-scene-poster.jpg', ratio: '16 / 9' },
         ],
       },
       {
-        text: 'The heat immerses viewers in the intensity of industrialization as they approach.',
-        columns: 3,
+        label: 'Projection mapping',
+        columns: 'row',
         media: [
-          { src: 'assets/projects/heated-machines/web/img_0609.mp4', poster: 'assets/projects/heated-machines/web/img_0609-poster.jpg', ratio: '9 / 16' },
-          { src: 'assets/projects/heated-machines/web/img_0612.mp4', poster: 'assets/projects/heated-machines/web/img_0612-poster.jpg', ratio: '9 / 16' },
-          { src: 'assets/projects/heated-machines/web/img_0691.mp4', poster: 'assets/projects/heated-machines/web/img_0691-poster.jpg', ratio: '9 / 16' },
+          { src: 'assets/projects/synapses/web/img_9490.mp4', poster: 'assets/projects/synapses/web/img_9490-poster.jpg', ratio: '9 / 16' },
+          { src: 'assets/projects/synapses/web/img_9383.mp4', poster: 'assets/projects/synapses/web/img_9383-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/synapses/web/img_9394.mp4', poster: 'assets/projects/synapses/web/img_9394-poster.jpg', ratio: '16 / 9' },
+        ],
+      },
+      {
+        columns: 2,
+        media: [
+          { src: 'assets/projects/synapses/web/untitled2.jpg', ratio: '3 / 4' },
+          { src: 'assets/projects/synapses/web/untitled1.jpg', ratio: '3 / 4' },
         ],
       },
     ],
