@@ -291,6 +291,8 @@
           }
         </header>
 
+        ${p.intro ? Section(p.intro) : '' /* a section shown before the hero, e.g. background */}
+
         ${
           Array.isArray(hero) // several images side by side
             ? `<div class="project__hero block__media cols-${hero.length}">${hero.map((m) => Media(m)).join('')}</div>`
