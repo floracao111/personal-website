@@ -607,7 +607,6 @@ window.PROJECTS = [
   {
     slug: 'tied',
     title: 'Tied',
-    blurb: 'Three months of Amazon shopping, as moving hair and a hologram',
     tags: ['Data', 'Installation'],
     summary:
       "Tied to consumption, I'm always moving, buying. </br> The faint hologram displays everything I purchased in the past three months. All of it playing an important yet temporary role in my life. The movement of the hair follows how long I spent shopping, according to the data Amazon collected.",
