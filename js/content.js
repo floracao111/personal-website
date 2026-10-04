@@ -470,7 +470,7 @@ window.PROJECTS = [
   {
     slug: 'housekeeping',
     title: 'Housekeeping',
-    // blurb: 'A robot wiping the floor in front of a melting ice keyboard',
+    blurb: 'Melting, cleaning up',
     tags: ['Installation'],
     summary:
       'The rational self keeps things moving.</br> It sticks to the tasks and gets through the day, while a softer, messier part quietly melts underneath.',
@@ -607,6 +607,7 @@ window.PROJECTS = [
   {
     slug: 'tied',
     title: 'Tied',
+    blurb: 'My Amazon shopping data',
     tags: ['Data', 'Installation'],
     summary:
       "Tied to consumption, I'm always moving, buying. </br> The faint hologram displays everything I purchased in the past three months. All of it playing an important yet temporary role in my life. The movement of the hair follows how long I spent shopping, according to the data Amazon collected.",
