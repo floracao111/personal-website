@@ -1,0 +1,18 @@
+# Only what the website loads goes online. Originals stay on this Mac.
+
+# Mac / editor clutter
+.DS_Store
+.claude/
+
+# Original photos and videos — the site uses the copies in each project's web/ folder
+assets/projects/*/*
+!assets/projects/*/web/
+
+# Unused portrait photo (the portrait is switched off)
+assets/portrait/
+
+# Experiments
+lab/
+
+# Research overview figure kept offline while the paper is under review
+assets/projects/vlm-inferential-privacy/web/screenshot-2026-10-03-at-12.31.46.png

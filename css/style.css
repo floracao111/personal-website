@@ -1,0 +1,930 @@
+/* ==========================================================================
+   Flora Cao — portfolio
+   Sans (system / SF) for names and prose. Mono for data: tags, indexes, labels.
+   ========================================================================== */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #86868b;
+  --line: #e8e8ed;
+  --ph: #f5f5f7;
+  --ph-ink: #a1a1a6;
+  --ph-grid: #ededf0;
+  --accent: #0071e3;
+  --accent-soft: #e8f1fc;
+
+  /* One typeface everywhere: Helvetica. Small text = smaller / light / italic; titles = bold. No all-caps. */
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --panel: clamp(240px, 22vw, 340px);
+  --pad: clamp(20px, 3.2vw, 56px);
+  --top: calc(var(--pad) * 0.8); /* space above the name, the homepage grid and project titles */
+  --gap-x: clamp(20px, 2.4vw, 44px);
+  --gap-y: clamp(44px, 4.4vw, 80px);
+  --name-h: 34px;   /* height of the "Flora Cao" line */
+  --name-gap: 28px; /* space between name and portrait */
+
+  --grid-cols: 3;
+  --grid-gap: 16px;  /* space between covers, side to side */
+  --grid-row-gap: var(--top); /* space between rows of covers = space above the grid */
+  --media-gap: 12px; /* space between images/videos on project pages */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 15px/1.5 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  dynamic-range-limit: standard; /* never let HDR photos/videos glow brighter than the page */
+}
+
+:focus-visible {
+  outline: 1px solid var(--fg);
+  outline-offset: 4px;
+}
+
+.label {
+  font: italic 400 13px/1.4 var(--sans);
+  color: var(--muted);
+}
+
+/* ---------- Layout -------------------------------------------------------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: var(--panel) minmax(0, 1fr);
+  column-gap: var(--pad);
+  padding: 0 var(--pad);
+}
+
+.main {
+  /* top of the right side lines up with the top of the portrait */
+  padding: calc(var(--pad) + var(--name-h) + var(--name-gap)) 0 calc(var(--pad) * 2);
+  min-width: 0;
+}
+
+/* Homepage: the grid starts near the top, with the same padding as the right edge. */
+@media (min-width: 861px) {
+  [data-page='home'] .main {
+    padding-top: var(--top); /* lines up with the top of the name */
+  }
+
+  [data-page='home'] .layout {
+    padding-right: calc(var(--pad) * 1.3);
+  }
+}
+
+/* Project pages: the title lines up with the name (click the name to go home). */
+[data-page='project'] .main {
+  padding-top: var(--top);
+}
+
+/* ---------- Identity panel ----------------------------------------------- */
+
+.identity {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  padding: var(--top) 0 var(--pad);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* a little room on each side so the name isn't clipped when it grows on hover */
+  margin-inline: -12px;
+  padding-inline: 12px;
+}
+
+.identity__name {
+  display: block;
+  font: 700 30px/var(--name-h) var(--sans);
+  letter-spacing: -0.02em;
+}
+
+/* name as an image: fills most of the panel's width, grows a little on hover so it reads as clickable */
+.identity__name--image img {
+  display: block;
+  width: 92%;
+  height: auto;
+  transform-origin: center;
+  transition: transform 0.12s ease-out;
+}
+
+.identity__name--image:hover img,
+.identity__name--image:focus-visible img {
+  transform: scale(1.02);
+}
+
+.identity__name--image:active img {
+  transform: scale(1.01);
+}
+
+.identity__portrait {
+  margin-top: auto; /* sits at the bottom of the panel */
+  padding-top: 32px;
+}
+
+/* Dot portrait: the slot only reserves space; the dots are drawn on
+   a full-window canvas behind everything (js/pixel-portrait.js). */
+.identity__portrait--dots {
+  aspect-ratio: 4 / 3;
+}
+
+.portrait-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.identity__info {
+  margin-top: var(--name-gap); /* lines up with the top of the project grid */
+}
+
+.identity__focus li {
+  font: 300 14px/1.6 var(--sans);
+  color: var(--muted);
+}
+
+.identity__nav {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.identity__nav:first-child {
+  margin-top: 0;
+}
+
+.identity__nav a {
+  font-size: 15px;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.identity__nav a:hover,
+.identity__nav a[aria-current='page'] {
+  text-decoration-line: underline;
+}
+
+/* ---------- Media ---------------------------------------------------------- */
+
+.media__frame {
+  position: relative;
+  background: var(--ph);
+  overflow: hidden;
+}
+
+.media__frame img,
+.media__frame video {
+  width: 100%;
+  height: auto;
+}
+
+.media__frame--fixed img,
+.media__frame--fixed video,
+.media__frame--fixed iframe {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media__frame iframe {
+  width: 100%;
+  border: 0;
+}
+
+.media--contain .media__frame {
+  background: transparent;
+}
+
+.media--contain .media__frame--fixed img,
+.media--contain .media__frame--fixed video {
+  object-fit: contain;
+}
+
+.identity .media--contain .media__frame--fixed img {
+  object-position: left top;
+}
+
+.tile .media--contain .media__frame {
+  background: var(--ph);
+}
+
+.media__caption {
+  margin-top: 10px;
+  font: italic 300 13px/1.5 var(--sans);
+  color: var(--muted);
+}
+
+/* Placeholder: a labelled frame that tells you which file goes where. */
+.ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background-color: var(--ph);
+  background-image:
+    linear-gradient(var(--ph-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ph-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+  font: 300 12px/1.4 var(--sans);
+  color: var(--ph-ink);
+}
+
+.ph__label {
+  font-style: italic;
+}
+
+.ph__cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
+  background:
+    linear-gradient(var(--ph-ink), var(--ph-ink)) center / 100% 1px no-repeat,
+    linear-gradient(var(--ph-ink), var(--ph-ink)) center / 1px 100% no-repeat;
+}
+
+.ph__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ph__foot span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Project grid --------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  gap: var(--grid-row-gap) var(--grid-gap);
+}
+
+/* Title + blurb sit on the cover and appear on hover / keyboard focus. */
+.tile {
+  position: relative;
+  display: block;
+}
+
+.tile__caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* small partner logos pinned to the top-right of a cover */
+.tile__logos {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.tile__logos img {
+  display: block;
+  width: auto;
+}
+
+/* "In progress" chip, always visible on the cover */
+.tile__status {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 1;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font: italic 400 12px/1.2 var(--sans);
+  color: var(--fg);
+  pointer-events: none;
+}
+
+.tile:hover .tile__caption,
+.tile:focus-visible .tile__caption {
+  opacity: 1;
+}
+
+.tile:focus-visible {
+  outline-offset: 2px;
+}
+
+.tile__title {
+  font-weight: 700;
+}
+
+.tile__blurb {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Touch screens can't hover: show the caption under the cover instead. */
+@media (hover: none) {
+  .grid {
+    row-gap: 28px;
+  }
+
+  .tile__caption {
+    position: static;
+    padding: 10px 0 0;
+    background: none;
+    color: var(--fg);
+    opacity: 1;
+  }
+
+  .tile__blurb {
+    color: var(--muted);
+  }
+}
+
+/* ---------- Project page --------------------------------------------------- */
+
+.project {
+  max-width: 1200px;
+}
+
+.back {
+  display: inline-block;
+  font: 300 14px/1.4 var(--sans);
+  color: var(--muted);
+}
+
+.back:hover {
+  color: var(--fg);
+}
+
+.project__head {
+  margin: 0 0 clamp(32px, 3.6vw, 48px);
+}
+
+/* title, then partner logos right next to it on the same line */
+.project__titlerow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 44px;
+}
+
+.project__title {
+  font: 700 clamp(28px, 2.8vw, 40px)/1.08 var(--sans);
+  letter-spacing: -0.028em;
+}
+
+.project__logo {
+  display: block;
+  height: calc(clamp(30px, 3.2vw, 46px) * var(--logo-scale, 1));
+  width: auto;
+  max-width: 100%;
+}
+
+/* logo pieces sit edge to edge, no gap */
+.project__logo-set {
+  display: flex;
+  align-items: flex-end;
+}
+
+.project__logo-set .project__logo {
+  height: calc(clamp(36px, 3.8vw, 54px) * var(--logo-scale, 1));
+}
+
+/* the same gap as between the letters inside the artwork (about 1.7 of its 53 units) */
+.project__logo-set .project__logo + .project__logo {
+  margin-left: calc(clamp(36px, 3.8vw, 54px) * 1.73 / 53);
+}
+
+[data-page='home'] .project__foot {
+  margin-top: calc(var(--top) * 2);
+}
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+/* copyright line at the end of the homepage and every project page */
+.project__foot {
+  margin-top: clamp(80px, 9vw, 140px);
+  text-align: center;
+  font: 300 13px/1.4 var(--sans);
+  color: var(--muted);
+}
+
+/* tag chip: short text on a soft, semi-transparent grey pill (like a story location sticker) */
+.tag {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(120, 120, 128, 0.14);
+  font: 400 13px/1.2 var(--sans);
+  color: var(--fg);
+}
+
+/* short note about the page itself, e.g. research under review */
+.project__preface {
+  max-width: 48em;
+  margin-top: 14px;
+  font: italic 300 14px/1.5 var(--sans);
+  color: var(--muted);
+}
+
+.project__summary {
+  max-width: 48em;
+  margin-top: 18px;
+  font: 400 17px/1.55 var(--sans);
+}
+
+.project__meta {
+  max-width: 44em;
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.project__meta div {
+  display: grid;
+  grid-template-columns: 9em 1fr;
+  column-gap: var(--gap-x);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project__meta dt {
+  padding-top: 1px;
+  font: italic 400 13px/1.4 var(--sans);
+  color: var(--muted);
+}
+
+.project__meta dd {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Page reader: a row of page previews on top, the current page large below.
+   No arrows or counters — the bright thumbnail and its marker show where you are. */
+.reader__hint {
+  margin-bottom: 16px;
+  font: 400 15px/1.4 var(--sans);
+  color: var(--muted);
+}
+
+/* the instruction matches the device: mouse/trackpad vs touch screen */
+.reader__hint-touch { display: none; }
+
+@media (hover: none) {
+  .reader__hint-mouse { display: none; }
+  .reader__hint-touch { display: inline; }
+}
+
+.reader__thumbs {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 14px; /* room for the dot */
+  margin-bottom: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.reader__thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.reader__thumb {
+  position: relative;
+  flex: 1 0 64px;
+  aspect-ratio: var(--page-ratio);
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--ph);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.reader__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.reader__thumb:hover {
+  opacity: 0.7;
+}
+
+.reader__thumb[aria-current] {
+  opacity: 1;
+}
+
+/* dot under the current page */
+.reader__thumb::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fg);
+  transform: translateX(-50%) scale(0);
+  transition: transform 0.25s ease;
+}
+
+.reader__thumb[aria-current]::after {
+  transform: translateX(-50%) scale(1);
+}
+
+.reader__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: 12px;
+  background: var(--ph);
+  outline-offset: 4px;
+}
+
+.reader__track::-webkit-scrollbar {
+  display: none;
+}
+
+.reader__track[data-cursor='prev'] { cursor: w-resize; }
+.reader__track[data-cursor='next'] { cursor: e-resize; }
+
+.reader__page {
+  position: relative;
+  aspect-ratio: var(--page-ratio);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  user-select: none;
+}
+
+.reader__page img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Small partner / collaborator logos at the top of a project page */
+.project__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+
+.project__logos img {
+  height: 22px;
+  width: auto;
+}
+
+/* Content blocks: small italic label in a narrow left column, prose on the right,
+   media full width underneath. */
+.block {
+  margin-top: clamp(32px, 3vw, 48px);
+}
+
+/* A media-only block continues the one above it like another row. */
+.block:not(:has(.block__text)) {
+  margin-top: var(--media-gap);
+}
+
+/* small label on top, text underneath */
+.block__text {
+  display: grid;
+  row-gap: 10px;
+}
+
+.block__body {
+  max-width: 54em;
+}
+
+.block__body h3 {
+  margin-bottom: 12px;
+  font: 700 20px/1.3 var(--sans);
+  letter-spacing: -0.015em;
+}
+
+.block__body p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.block__body p + p {
+  margin-top: 1em;
+}
+
+.block__body a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Design question: large, on a soft rounded panel */
+.block__body .quote {
+  padding: clamp(24px, 3vw, 40px);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f5f5f7, #fbfbfd);
+  font: 700 clamp(22px, 2.2vw, 30px)/1.3 var(--sans);
+  letter-spacing: -0.02em;
+}
+
+/* Big number + the finding it comes from */
+.stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 1.4em;
+}
+
+.block__body .stat__value {
+  font: 300 clamp(44px, 4.4vw, 60px)/1 var(--sans);
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.block__body .stat__text {
+  font-size: 17px;
+}
+
+.block__body .stat__source {
+  margin-top: 4px;
+  font: italic 300 13px/1.4 var(--sans);
+  color: var(--muted);
+}
+
+/* Question / answer pairs */
+.qa div + div {
+  margin-top: 1em;
+}
+
+.qa dt {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.qa dd {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Gap table: rounded panel, rows separated by space, not lines */
+.gap {
+  margin: 1.4em 0;
+  overflow-x: auto;
+}
+
+.gap table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  font-size: 15px;
+}
+
+.gap th,
+.gap td {
+  padding: 12px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.gap thead th {
+  padding-bottom: 6px;
+  font: 700 14px/1.3 var(--sans);
+  white-space: normal;
+  vertical-align: bottom;
+}
+
+.gap tbody th {
+  text-align: left;
+  font-weight: 400;
+}
+
+.gap tbody tr > * {
+  background: var(--ph);
+}
+
+.gap tbody tr > :first-child { border-radius: 12px 0 0 12px; }
+.gap tbody tr > :last-child { border-radius: 0 12px 12px 0; }
+
+.gap tbody .gap__highlight > * {
+  background: var(--accent-soft);
+}
+
+.gap .gap__highlight th {
+  font-weight: 700;
+}
+
+.gap__icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+
+.gap__icon--yes { stroke: var(--accent); }
+.gap__icon--no { stroke: var(--ph-ink); }
+
+/* side-by-side hero images: as wide as the text column, not the whole page */
+.project__hero.block__media {
+  max-width: 54em;
+}
+
+.block__text + .block__media {
+  margin-top: 16px;
+}
+
+.block__media {
+  display: grid;
+  gap: var(--media-gap);
+}
+
+.block__media--row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.block__media--row .media {
+  min-width: 0;
+}
+
+.block__media.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.block__media.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+
+/* ---------- About ---------------------------------------------------------- */
+
+.about .project__head {
+  margin-top: 0;
+}
+
+/* About: two sizes only — small grey labels and 17px text (links included) */
+.about > .block:first-child {
+  margin-top: 0;
+}
+
+.about__links {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.about__links li + li {
+  margin-top: 4px;
+}
+
+/* ---------- Responsive ----------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  :root {
+    --grid-cols: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --grid-cols: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --pad: 20px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .identity {
+    position: static;
+    height: auto;
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-areas: 'name name' 'portrait info';
+    column-gap: 20px;
+    align-items: end;
+  }
+
+  .identity:not(:has(.identity__portrait)) {
+    grid-template-areas: 'name name' 'info info';
+  }
+
+  .identity:not(:has(.identity__portrait)) .identity__info {
+    margin-top: 16px;
+  }
+
+  .identity__name {
+    grid-area: name;
+  }
+
+  .identity__portrait {
+    grid-area: portrait;
+    margin-top: 20px;
+    padding-top: 0;
+  }
+
+  .identity__info {
+    grid-area: info;
+    margin-top: 0;
+  }
+
+  .main {
+    padding-top: 24px;
+  }
+
+  .block__media.cols-2,
+  .block__media.cols-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .block__media--row {
+    flex-direction: column;
+  }
+
+  .block__media--row .media {
+    flex: none !important;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
