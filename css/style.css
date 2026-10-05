@@ -682,6 +682,7 @@ img, video {
   margin-top: 1em;
 }
 
+.project__summary a,
 .block__body a {
   text-decoration: underline;
   text-decoration-thickness: 1px;

@@ -168,12 +168,11 @@ window.PROJECTS = [
     blurb: 'An easy, open-source robotic hand kit for education and research',
     tags: ['Robotics', 'Open Source', 'Physical Computing', 'Assistive Technology'],
     summary:
-      'A low-cost, open-source robotic hand kit that is easy to print, assemble and program, and dexterous enough to form Cued Speech handshapes. The next step after CuedData.',
+      'A low-cost, open-source robotic hand kit that is easy to print, assemble and program, and dexterous enough to form Cued Speech handshapes. The next step after <a href="project.html?p=cueddata">CuedData</a>.',
     meta: {
-      Timeline: 'July 2026 – present',
+      Timeline: 'August 2026 – present',
       Role: 'Designer & Developer',
       Status: 'In progress',
-      Follows: { text: 'CuedData', href: 'project.html?p=cueddata' },
     },
     logo: 'assets/projects/cuedkit/web/cuedkit-logo-color.svg',
     cover: { src: 'assets/projects/cuedkit/web/cover.mp4', poster: 'assets/projects/cuedkit/web/cover-poster.jpg' },
@@ -185,7 +184,7 @@ window.PROJECTS = [
       {
         label: 'Origin',
         text: [
-          'While building <a href="project.html?p=cueddata">CuedData</a>, I needed a robotic hand. None were easy to print or assemble, so I bought a prefabricated one. It wasn’t cheap, and it still couldn’t make one of the handshapes, a peace sign. The more dexterous options cost far more.',
+          'While building <a href="project.html?p=cueddata">CuedData</a>, I needed a robotic hand. None were easy to print or assemble, so I bought a prefabricated one. It wasn’t cheap, and it still couldn’t make one of the handshapes (the peace sign). The more dexterous options cost far more.',
           'So I’m building my own: easy to print, simple to assemble, and just dexterous enough for Cued Speech. I’m packaging it as a kit and open-sourcing it, so others in need don’t run into the same problem.',
         ],
       },
