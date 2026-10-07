@@ -12,18 +12,22 @@
   document.getElementById('identity').innerHTML = C.Identity(page);
 
   if (page === 'home') {
+    if (location.pathname.endsWith('/index.html')) history.replaceState(null, '', './'); // floracao.work, not /index.html
     main.innerHTML = C.Grid(PROJECTS) + C.Footer();
   }
 
   if (page === 'project') {
-    const slug = new URLSearchParams(location.search).get('p');
+    // floracao.work/cuedkit → 'cuedkit'; old links like project.html?p=cuedkit still work
+    const fromQuery = new URLSearchParams(location.search).get('p');
+    const slug = fromQuery || location.pathname.split('/').pop().replace(/\.html$/, '');
     const i = PROJECTS.findIndex((p) => p.slug === slug);
     if (i === -1) {
-      main.innerHTML = `<article class="project"><a class="back" href="index.html">← Index</a>
+      main.innerHTML = `<article class="project"><a class="back" href="./">← Index</a>
         <h1 class="project__title">Not found</h1></article>`;
     } else {
       document.title = `${PROJECTS[i].title} — ${SITE.name}`;
       main.innerHTML = C.ProjectPage(PROJECTS[i], i, PROJECTS);
+      if (fromQuery) history.replaceState(null, '', slug); // show the short address
     }
   }
 

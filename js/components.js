@@ -121,7 +121,7 @@
   function Identity(active) {
     const s = window.SITE;
     return `
-      <a class="identity__name${s.nameImage ? ' identity__name--image' : ''}" href="index.html">${
+      <a class="identity__name${s.nameImage ? ' identity__name--image' : ''}" href="./">${
         s.nameImage ? `<img src="${esc(s.nameImage)}" alt="${esc(s.name)}">` : esc(s.name)
       }</a>
       <div class="identity__info">
@@ -146,7 +146,7 @@
   function Tile(p) {
     return `
       <li class="grid__item">
-        <a class="tile" href="project.html?p=${encodeURIComponent(p.slug)}">
+        <a class="tile" href="${encodeURIComponent(p.slug)}">
           ${Media(p.cover, { ratio: window.SITE.coverRatio || '3 / 2', label: p.title, className: 'tile__media' })}
           ${
             p.logosOnCover && p.logos
