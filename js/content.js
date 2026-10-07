@@ -473,7 +473,7 @@ window.PROJECTS = [
       'The rational self keeps things moving.</br> It sticks to the tasks and gets through the day, while a softer, messier part quietly melts underneath.',
     meta: {
       Year: '2025',
-      Medium: 'Aluminum extrusions, DC motors, rubber gloves, sponges, ice, keyboard part, Arduino',
+      Medium: 'Aluminum extrusions, servo motors, rubber gloves, sponges, ice, keyboard part, Arduino',
     },
     cover: { src: 'assets/projects/housekeeping/web/cover.mp4?v=2', poster: 'assets/projects/housekeeping/web/cover-poster.jpg?v=2' },
     hero: false,
@@ -616,7 +616,7 @@ window.PROJECTS = [
       "Tied to consumption, I'm always moving, buying. </br> The faint hologram displays everything I purchased in the past three months. All of it playing an important yet temporary role in my life. The movement of the hair follows how long I spent shopping, according to the data Amazon collected.",
     meta: {
       Year: '2024',
-      Medium: 'Acrylic, synthetic hair, fishing line, Arduino, tablet',
+      Medium: 'Acrylic, synthetic hair, fishing line, servo motors, Arduino, tablet',
     },
     cover: { src: 'assets/projects/tied/web/cover.mp4', poster: 'assets/projects/tied/web/cover-poster.jpg' },
     hero: { src: 'assets/projects/tied/web/vid1.mp4', poster: 'assets/projects/tied/web/vid1-poster.jpg' },
