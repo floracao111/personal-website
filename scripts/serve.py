@@ -21,6 +21,13 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=ROOT, **kwargs)
 
+    def translate_path(self, path):
+        # like GitHub Pages: /cuedkit serves cuedkit.html
+        local = super().translate_path(path)
+        if not os.path.exists(local) and os.path.isfile(local + '.html'):
+            return local + '.html'
+        return local
+
     def end_headers(self):
         self.send_header('Cache-Control', 'no-store')
         self.send_header('Accept-Ranges', 'bytes')
