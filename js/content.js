@@ -207,8 +207,9 @@ window.PROJECTS = [
         ],
       },
       {
-        heading: 'Where CuedKit sits',
-        text: 'Yale OpenHand showed open-source hands can be research-grade. e-NABLE showed open-source 3D prints can reach people in need. Makeblock showed kits can be fun and educational. Robotics labs showed robotic hands can sign.',
+        heading: 'Where <img class="heading-logo" src="assets/projects/cuedkit/web/cuedkit-logo-color.svg" alt="CuedKit"> sits',
+        // one sentence per line
+        text: 'Yale OpenHand showed open-source hands can be research-grade.<br>e-NABLE showed open-source 3D prints can reach people in need.<br>Makeblock showed kits can be fun and educational.<br>Research labs and companies have shown robotic hands can demonstrate sign language.',
         table: {
           columns: ['Open Source', 'Low Cost', 'Sign Language /<br>Cued Speech', 'Assemblable'],
           rows: [
@@ -220,11 +221,11 @@ window.PROJECTS = [
           ],
           highlight: 'CuedKit',
         },
-        textAfter: 'No one combines all four. CuedKit aims to be the first open-source, low-cost robotic hand kit built for language.',
+        textAfter: 'CuedKit aims to be the first open-source, low-cost robotic hand kit built for language.',
       },
       {
         label: 'Design question',
-        quote: 'How can I make an affordable, educational robotic hand that anyone can build?',
+        quote: 'How can I make an affordable, educational robotic hand that is easily available for people?',
       },
       {
         label: 'Robotic hand iterations',

@@ -457,6 +457,15 @@ img, video {
   margin-top: calc(var(--top) * 2);
 }
 
+/* a logo standing in for a word inside a heading, sitting on the text's baseline */
+.heading-logo {
+  display: inline-block;
+  height: 1.1em;
+  width: auto;
+  margin: 0 0.08em;
+  vertical-align: baseline;
+}
+
 .project__tags {
   display: flex;
   flex-wrap: wrap;
@@ -703,7 +712,7 @@ img, video {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  margin-top: 1.4em;
+  margin: 4px 0 1.4em;
 }
 
 .block__body .stat__value {
@@ -714,6 +723,7 @@ img, video {
 
 .block__body .stat__text {
   font-size: 17px;
+  color: #6e6e73; /* a step lighter than my own writing */
 }
 
 .block__body .stat__source {
