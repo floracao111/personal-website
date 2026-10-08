@@ -221,10 +221,10 @@
             ? `<div class="block__text">
                  ${s.label ? `<p class="label">${esc(s.label)}</p>` : ''}
                  <div class="block__body">
-                   ${s.heading ? `<h3>${esc(s.heading)}</h3>` : ''}
+                   ${s.heading ? `<h3>${s.heading}</h3>` : '' /* HTML allowed */}
+                   ${s.stat ? Stat(s.stat) : ''}
                    ${paras.map((t) => `<p>${t}</p>`).join('')}
                    ${s.quote ? `<p class="quote">${s.quote}</p>` : ''}
-                   ${s.stat ? Stat(s.stat) : ''}
                    ${s.list ? List(s.list) : ''}
                    ${s.table ? GapTable(s.table) : ''}
                    ${after.map((t) => `<p>${t}</p>`).join('')}
