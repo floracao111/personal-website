@@ -853,6 +853,12 @@ img, video {
   margin-top: 0;
 }
 
+/* thin italic aside after the school, same size as the text */
+.about__note {
+  font-weight: 300;
+  font-style: italic;
+}
+
 .about__links {
   font-size: 17px;
   line-height: 1.6;
