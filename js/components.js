@@ -149,8 +149,8 @@
         <a class="tile" href="${encodeURIComponent(p.slug)}">
           ${Media(p.cover, { ratio: window.SITE.coverRatio || '3 / 2', label: p.title, className: 'tile__media' })}
           ${
-            p.logosOnCover && p.logos
-              ? `<span class="tile__logos">${p.logos
+            p.coverLogos || (p.logosOnCover && p.logos)
+              ? `<span class="tile__logos">${(p.coverLogos || p.logos)
                   .map((l) => `<img src="${esc(l.src)}" alt="${esc(l.alt || '')}" style="height:${l.coverHeight || Math.round((l.height || 26) * 0.55)}px">`)
                   .join('')}</span>`
               : ''

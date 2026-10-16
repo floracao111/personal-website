@@ -56,6 +56,7 @@ window.SITE = {
              (height in px is optional — use it to balance logos with lots of white space)
    logosOnCover  true → the logos also appear small in the top-right of the homepage cover
                  (a logo's coverHeight, in px, sets its size there)
+   coverLogos    small logos for the homepage cover only (not shown on the project page): [{ src, alt, coverHeight }, …]
    hero      the large visual at the top of the project page (false = none).
              For a Vimeo/YouTube video use  hero: { embed: 'https://player.vimeo.com/video/…' }
              For PDF pages to flip through use  hero: { pages: ['…/page-01.jpg', …] }
@@ -175,7 +176,7 @@ window.PROJECTS = [
       Status: 'In progress',
     },
     logo: 'assets/projects/cuedkit/web/cuedkit-logo-color.svg',
-    cover: { src: 'assets/projects/cuedkit/web/cover.mp4', poster: 'assets/projects/cuedkit/web/cover-poster.jpg' },
+    cover: { src: 'assets/projects/cuedkit/web/cover-blender.mp4', poster: 'assets/projects/cuedkit/web/cover-blender-poster.jpg' },
     hero: [
       { src: 'assets/projects/cuedkit/web/cover-vid.mp4', poster: 'assets/projects/cuedkit/web/cover-vid-poster.jpg', ratio: '4 / 3', alt: 'CuedKit hand moving' },
       { src: 'assets/projects/cuedkit/web/iterations1.jpg', ratio: '4 / 3', alt: 'Five printed hand iterations' },
@@ -230,15 +231,15 @@ window.PROJECTS = [
       {
         label: 'Robotic hand iterations',
         text: [
-          'Printed hands, refined until they were simple enough for a beginner to assemble.',
+          'My goal was to print as many parts in place as possible, so the hand is easy to print and quick to put together.',
           'The individual finger mechanism comes from <a href="https://makerworld.com/en/models/1772809-overengineered-mechanical-hand-v2-4-fingers" target="_blank" rel="noopener">Overengineered Mechanical Hand V2</a> by TLPOD on MakerWorld. I designed the rest of the hand around it.',
-          'The prefabricated hand in CuedData couldn’t move its index finger on its own, so it couldn’t form every handshape. This hand gives the index finger its own servo, so it can achieve the peace sign, without adding complexity to the rest of the hand.',
+          'The prefabricated hand I used in <a href="cueddata">CuedData</a> couldn’t move its index finger laterally, so it couldn’t form the 8th handshape. This new hand gives the index finger its own servo, so it can achieve the peace sign, without adding complexity to the rest of the hand.',
         ],
         columns: 3,
         media: [
+          { src: 'assets/projects/cuedkit/web/index-rotate-blender.mp4', poster: 'assets/projects/cuedkit/web/index-rotate-blender-poster.jpg', ratio: '4 / 3', caption: 'Designing in Blender' },
           { src: 'assets/projects/cuedkit/web/iterations2.jpg', ratio: '4 / 3', caption: 'Iterations' },
           { src: 'assets/projects/cuedkit/web/index-open.jpg?v=2', ratio: '4 / 3', caption: 'Index finger open' },
-          { src: 'assets/projects/cuedkit/web/index-close.jpg?v=2', ratio: '4 / 3', caption: 'Index finger closed' },
         ],
       },
       {
@@ -354,10 +355,13 @@ window.PROJECTS = [
       Year: '2025',
       Medium: 'Portable toilet, old bike, bike trainer, tachometer, bike bell, Arduino, motor, wood, 3D prints, Unity interactive game',
       Role: 'Concept, Arduino & hardware fabrication, video, visual identity',
+      Professor: 'Sven Travis',
       Collaborators:
         'Jiazhen Luo: Arduino & Hardware Fabrication, Daniel Meng: Game Development, Mere Cui: Game Illustration',
     },
     logo: 'assets/projects/asapoop/web/asapoop-logo.png',
+    // school logo, small, top-right of the homepage cover only
+    coverLogos: [{ src: 'assets/projects/asapoop/web/logo-parsons.png', alt: 'Parsons School of Design', coverHeight: 16 }],
     cover: { src: 'assets/projects/asapoop/web/cover.mp4', poster: 'assets/projects/asapoop/web/cover-poster.jpg' },
     hero: { embed: 'https://player.vimeo.com/video/1072852598?h=f3d234d2d4', alt: 'ASAPoop — project video' },
     sections: [
