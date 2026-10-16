@@ -354,10 +354,10 @@ window.PROJECTS = [
     meta: {
       Year: '2025',
       Medium: 'Portable toilet, old bike, bike trainer, tachometer, bike bell, Arduino, motor, wood, 3D prints, Unity interactive game',
-      Role: 'Concept, Arduino & hardware fabrication, video, visual identity',
+      Role: 'Concept, Arduino, Hardware Fabrication, Video, Visual Identity',
       Professor: 'Sven Travis',
       Collaborators:
-        'Jiazhen Luo: Arduino & Hardware Fabrication, Daniel Meng: Game Development, Mere Cui: Game Illustration',
+        'Jiazhen Luo: Concept, Arduino, Hardware Fabrication; Daniel Meng: Game Development; Mere Cui: Game Illustration',
     },
     logo: 'assets/projects/asapoop/web/asapoop-logo.png',
     // school logo, small, top-right of the homepage cover only
