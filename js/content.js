@@ -58,6 +58,7 @@ window.SITE = {
                  (a logo's coverHeight, in px, sets its size there)
    coverLogos    small logos for the homepage cover only (not shown on the project page): [{ src, alt, coverHeight }, …]
    hero      the large visual at the top of the project page (false = none).
+             A list of media shows them side by side; add  heroRow: true  to line up mixed shapes at equal height.
              For a Vimeo/YouTube video use  hero: { embed: 'https://player.vimeo.com/video/…' }
              For PDF pages to flip through use  hero: { pages: ['…/page-01.jpg', …] }
              From a PDF:          osascript -l JavaScript scripts/pdf-pages.js file.pdf output-folder
@@ -102,9 +103,12 @@ window.PROJECTS = [
     },
     intro: {
       text: [
-        'While Cued Speech has demonstrated educational value internationally, Mandarin Cued Speech remains underrepresented in AI research due to the lack of large-scale, standardized datasets.',
-        'Commissioned by Voibook, a hearing-accessibility technology company in China, I developed CuedData to automate the generation of standardized Mandarin Cued Speech recordings for AI recognition training and future speech education.',
+        '<a href="https://www.voibook.com/" target="_blank" rel="noopener">Voibook</a> is a hearing accessibility technology company in China. This year, one of its goals is to promote Cued Speech in China, to support literacy and speech rehabilitation for deaf people. <span class="aside">(Cued Speech has already demonstrated educational value internationally, but Mandarin Cued Speech is still in the early stages of adoption.)</span>',
+        'After a chat with the founder, we started imagining how robotics could help address this challenge.',
+        'So, I developed CuedData, a system that automates the generation of standardized Mandarin Cued Speech recordings for AI recognition training and future speech education.',
       ],
+      noteLabel: 'With thanks',
+      note: '<a href="https://www.wicinternet.org/2024-01/22/c_976313.htm" target="_blank" rel="noopener">Shi Chengchuan</a> has been a true inspiration to me and many others. I’m grateful for the conversations that sparked this project and the opportunity to support Voibook’s mission.',
     },
     // Portfolio pages — made with: zsh scripts/normalize-pages.sh <folder of page images> assets/projects/cueddata/web/pages
     hero: {
@@ -177,16 +181,24 @@ window.PROJECTS = [
     },
     logo: 'assets/projects/cuedkit/web/cuedkit-logo-color.svg',
     cover: { src: 'assets/projects/cuedkit/web/cover-blender.mp4', poster: 'assets/projects/cuedkit/web/cover-blender-poster.jpg' },
+    heroRow: true,
     hero: [
-      { src: 'assets/projects/cuedkit/web/cover-vid.mp4', poster: 'assets/projects/cuedkit/web/cover-vid-poster.jpg', ratio: '4 / 3', alt: 'CuedKit hand moving' },
-      { src: 'assets/projects/cuedkit/web/iterations1.jpg', ratio: '4 / 3', alt: 'Five printed hand iterations' },
+      { src: 'assets/projects/cuedkit/web/current-2x3.mp4', poster: 'assets/projects/cuedkit/web/current-2x3-poster.jpg', ratio: '2 / 3', alt: 'CuedKit hand on its arm, wired up' },
+      { src: 'assets/projects/cuedkit/web/hand.mp4', poster: 'assets/projects/cuedkit/web/hand-poster.jpg', ratio: '16 / 9', alt: 'CuedKit hand moving' },
+      { src: 'assets/projects/cuedkit/web/hand2.mp4', poster: 'assets/projects/cuedkit/web/hand2-poster.jpg', ratio: '16 / 9', alt: 'CuedKit hand moving' },
     ],
     sections: [
       {
         label: 'Origin',
         text: [
-          'While building <a href="cueddata">CuedData</a>, I needed a robotic hand. None were easy to print or assemble, so I bought a prefabricated one. It wasn’t cheap, and it still couldn’t make one of the handshapes (the peace sign). The more dexterous options cost far more.',
+          'While building <a href="cueddata">CuedData</a>, I needed a robotic hand. None were easy to print or assemble, so I bought a prefabricated one. It wasn’t cheap, and it still couldn’t make one of the handshapes (the peace sign ✌️). The more dexterous options cost far more.',
           'So I’m building my own: easy to print, simple to assemble, and just dexterous enough for Cued Speech. I’m packaging it as a kit and open-sourcing it, so others in need don’t run into the same problem.',
+        ],
+      },
+      {
+        list: [
+          { term: 'Who it’s for', text: 'Teachers, speech therapists, research labs, and curious families' },
+          { term: 'What they need', text: 'More affordable, hands-on learning resources' },
         ],
       },
       {
@@ -202,13 +214,7 @@ window.PROJECTS = [
         },
       },
       {
-        list: [
-          { term: 'Who it’s for', text: 'Teachers, speech therapists, research labs, and curious families' },
-          { term: 'What they need', text: 'More affordable, hands-on learning resources' },
-        ],
-      },
-      {
-        heading: 'Where <img class="heading-logo" src="assets/projects/cuedkit/web/cuedkit-logo-color.svg" alt="CuedKit"> sits',
+        heading: 'Where CuedKit sits',
         // one sentence per line
         text: 'Yale OpenHand showed open-source hands can be research-grade.<br>e-NABLE showed open-source 3D prints can reach people in need.<br>Makeblock showed kits can be fun and educational.<br>Research labs and companies have shown robotic hands can demonstrate sign language.',
         table: {
@@ -238,7 +244,7 @@ window.PROJECTS = [
         columns: 3,
         media: [
           { src: 'assets/projects/cuedkit/web/index-rotate-blender.mp4', poster: 'assets/projects/cuedkit/web/index-rotate-blender-poster.jpg', ratio: '4 / 3', caption: 'Designing in Blender' },
-          { src: 'assets/projects/cuedkit/web/iterations2.jpg', ratio: '4 / 3', caption: 'Iterations' },
+          { src: 'assets/projects/cuedkit/web/iterations1.jpg', ratio: '4 / 3', caption: 'Iterations' },
           { src: 'assets/projects/cuedkit/web/index-open.jpg?v=2', ratio: '4 / 3', caption: 'Index finger open' },
         ],
       },
@@ -249,7 +255,10 @@ window.PROJECTS = [
         media: [
           { src: 'assets/projects/cuedkit/web/tutorial1.mp4', poster: 'assets/projects/cuedkit/web/tutorial1-poster.jpg', ratio: '16 / 9' },
           { src: 'assets/projects/cuedkit/web/tutorial2.mp4', poster: 'assets/projects/cuedkit/web/tutorial2-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/cuedkit/web/tutorial3.mp4', poster: 'assets/projects/cuedkit/web/tutorial3-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/cuedkit/web/tutorial3.mp4?v=2', poster: 'assets/projects/cuedkit/web/tutorial3-poster.jpg?v=2', ratio: '16 / 9' },
+          { src: 'assets/projects/cuedkit/web/tutorial4.mp4', poster: 'assets/projects/cuedkit/web/tutorial4-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/cuedkit/web/tutorial5.mp4', poster: 'assets/projects/cuedkit/web/tutorial5-poster.jpg', ratio: '16 / 9' },
+          { src: 'assets/projects/cuedkit/web/tutorial6.mp4', poster: 'assets/projects/cuedkit/web/tutorial6-poster.jpg', ratio: '16 / 9' },
         ],
       },
       {
