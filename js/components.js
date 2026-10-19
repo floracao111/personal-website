@@ -198,21 +198,27 @@
   // stat: { value: '73%', text, source }
   const Stat = (st) => `
     <div class="stat">
-      <p class="stat__value">${esc(st.value)}</p>
-      <div>
-        <p class="stat__text">${st.text}</p>
-        ${st.source ? `<p class="stat__source">${st.source}</p>` : ''}
-      </div>
+      <p class="stat__text"><span class="stat__value">${esc(st.value)}</span> ${st.text}</p>
+      ${st.source ? `<p class="stat__source">${st.source}</p>` : ''}
     </div>`;
 
   // list: [{ term, text }, …]
   const List = (items) =>
     `<dl class="qa">${items.map((q) => `<div><dt>${esc(q.term)}</dt><dd>${q.text}</dd></div>`).join('')}</dl>`;
 
+  // justified row: same height, each item keeps its full shape (set `ratio` on every item)
+  const Row = (media) =>
+    media
+      .map((m) => {
+        const [w, h] = String(m.ratio || '1 / 1').split('/').map(Number);
+        return Media(m, { style: `flex: ${(w / h).toFixed(4)} 1 0` });
+      })
+      .join('');
+
   function Section(s) {
     const paras = [].concat(s.text || []);
     const after = [].concat(s.textAfter || []);
-    const hasText = s.label || s.heading || paras.length || s.quote || s.stat || s.list || s.table;
+    const hasText = s.label || s.heading || paras.length || s.quote || s.stat || s.list || s.table || s.note;
     const media = s.media || [];
     return `
       <section class="block">
@@ -228,6 +234,11 @@
                    ${s.list ? List(s.list) : ''}
                    ${s.table ? GapTable(s.table) : ''}
                    ${after.map((t) => `<p>${t}</p>`).join('')}
+                   ${
+                     s.note // e.g. an acknowledgement, set apart under its own small label
+                       ? `<p class="note">${s.noteLabel ? `<span class="note__label">${esc(s.noteLabel)} –</span>` : ''}${s.note}</p>`
+                       : ''
+                   }
                  </div>
                </div>`
             : ''
@@ -235,13 +246,7 @@
         ${
           media.length
             ? s.columns === 'row'
-              ? // justified row: same height, each item keeps its full shape (set `ratio` on every item)
-                `<div class="block__media block__media--row">${media
-                  .map((m) => {
-                    const [w, h] = String(m.ratio || '1 / 1').split('/').map(Number);
-                    return Media(m, { style: `flex: ${(w / h).toFixed(4)} 1 0` });
-                  })
-                  .join('')}</div>`
+              ? `<div class="block__media block__media--row">${Row(media)}</div>`
               : `<div class="block__media cols-${s.columns || 1}">${media.map((m) => Media(m)).join('')}</div>`
             : ''
         }
@@ -294,7 +299,9 @@
         ${p.intro ? Section(p.intro) : '' /* a section shown before the hero, e.g. background */}
 
         ${
-          Array.isArray(hero) // several images side by side
+          Array.isArray(hero) && p.heroRow // side by side at equal height, each keeping its shape
+            ? `<div class="project__hero block__media block__media--row">${Row(hero)}</div>`
+            : Array.isArray(hero) // several images side by side
             ? `<div class="project__hero block__media cols-${hero.length}">${hero.map((m) => Media(m)).join('')}</div>`
             : hero
             ? Media({ alt: `${p.title} — hero`, ...hero }, { className: 'project__hero' })
