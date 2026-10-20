@@ -109,8 +109,9 @@
 
     const fit = item.fit || opts.fit;
     const cls = ['media', opts.className, fit === 'contain' ? 'media--contain' : ''].filter(Boolean).join(' ');
+    const style = [opts.style, item.width ? `max-width:${esc(item.width)}` : ''].filter(Boolean).join(';'); // width: e.g. '720px' to keep a tall item modest
     return `
-      <figure class="${cls}"${opts.style ? ` style="${opts.style}"` : ''}>
+      <figure class="${cls}"${style ? ` style="${style}"` : ''}>
         <div class="media__frame${ratio ? ' media__frame--fixed' : ''}"${ratio ? ` style="aspect-ratio:${ratio}"` : ''}>${inner}</div>
         ${item.caption ? `<figcaption class="media__caption">${item.caption}</figcaption>` : ''}
       </figure>`;
@@ -221,7 +222,7 @@
     const hasText = s.label || s.heading || paras.length || s.quote || s.stat || s.list || s.table || s.note;
     const media = s.media || [];
     return `
-      <section class="block">
+      <section class="block${s.split ? ' block--split' : ''}">
         ${
           hasText
             ? `<div class="block__text">

@@ -255,18 +255,19 @@ window.PROJECTS = [
         media: [
           { src: 'assets/projects/cuedkit/web/tutorial1.mp4', poster: 'assets/projects/cuedkit/web/tutorial1-poster.jpg', ratio: '16 / 9' },
           { src: 'assets/projects/cuedkit/web/tutorial2.mp4', poster: 'assets/projects/cuedkit/web/tutorial2-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/cuedkit/web/tutorial3.mp4?v=2', poster: 'assets/projects/cuedkit/web/tutorial3-poster.jpg?v=2', ratio: '16 / 9' },
           { src: 'assets/projects/cuedkit/web/tutorial4.mp4', poster: 'assets/projects/cuedkit/web/tutorial4-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/cuedkit/web/tutorial5.mp4', poster: 'assets/projects/cuedkit/web/tutorial5-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/cuedkit/web/tutorial6.mp4', poster: 'assets/projects/cuedkit/web/tutorial6-poster.jpg', ratio: '16 / 9' },
         ],
       },
       {
         label: 'Interface',
+        split: true, // text on the left, recording on the right
         heading: 'In progress',
         text: [
           'Next is a website that walks people through assembling the hand and then lets them operate it, choosing a handshape and watching the hand form it.',
           'People will have two options: download the 3D files and source the listed motors themselves, or order a ready-to-build kit from me with the printed hand and every motor included. Either way, they assemble it with the tutorials, connect it to the website, and start using it right away.',
+        ],
+        media: [
+          { src: 'assets/projects/cuedkit/web/hand-assembly-page.mp4', poster: 'assets/projects/cuedkit/web/hand-assembly-page-poster.jpg', ratio: '1710 / 1696', caption: 'Hand assembly tutorial page (in progress)' },
         ],
       },
     ],

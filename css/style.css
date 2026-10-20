@@ -661,6 +661,22 @@ img, video {
   margin-top: clamp(32px, 3vw, 48px);
 }
 
+/* split block: text on the left, media on the right */
+@media (min-width: 861px) {
+  .block--split {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); /* slimmer text, bigger media */
+    column-gap: var(--gap-x);
+    align-items: start;
+  }
+
+  /* start the media level with the first paragraph: below the small label (13px × 1.4 + 10px gap)
+     and the heading (20px × 1.3 + 12px) */
+  .block--split .block__text + .block__media {
+    margin-top: calc(13px * 1.4 + 10px + 20px * 1.3 + 12px);
+  }
+}
+
 /* A media-only block continues the one above it like another row. */
 .block:not(:has(.block__text)) {
   margin-top: var(--media-gap);
