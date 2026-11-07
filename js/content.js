@@ -273,36 +273,6 @@ window.PROJECTS = [
     ],
   },
   {
-    slug: 'vlm-inferential-privacy',
-    title: 'Research: VLM Inferential Privacy Visualization',
-    status: 'Under review', // bubble on the homepage cover
-
-    blurb: 'Exploring design approaches for visualizing and addressing VLM inferential privacy risks.',
-    tags: ['Research', 'HCI', 'Privacy', 'AI'],
-    summary: 'How can we effectively visualize and address VLM inferential privacy risks across different contexts?',
-    preface: 'This page provides a high level overview of ongoing research currently under review. The title and content have been adapted for portfolio presentation and do not reproduce the submitted paper.',
-    meta: {
-      Year: '2026',
-      Research: 'Conference submission',
-      'My role': 'Eliciting Design Space',
-      Status: 'Under review',
-    },
-    // Kept to introductory material only while the paper is under anonymous review.
-    cover: { src: 'assets/projects/vlm-inferential-privacy/web/inference-example.jpg', position: '60% 50%' },
-    hero: false,
-    sections: [
-      {
-        label: 'Background',
-        text: 'VLM inferential privacy risks arise when sensitive personal attributes can be inferred from visual contexts through VLM reasoning. These risks are difficult to address because the inference process can be opaque and difficult to understand.',
-      },
-      {
-        label: 'Gap',
-        text: 'Existing research has benchmarked inferential privacy risks and shown that users are often unaware of them. However, practical methods and tools for addressing these risks remain limited, with existing defenses primarily manual and text based.',
-      },
-    ],
-  },
-
-  {
     slug: 'literal-language-machine',
     title: 'Literal Language Machine (LLM)',
     blurb: 'Little worker picking out tokens all day',
@@ -354,6 +324,36 @@ window.PROJECTS = [
       // },
     ],
   },
+  {
+    slug: 'vlm-inferential-privacy',
+    title: 'Research: VLM Inferential Privacy Visualization',
+    status: 'Under review', // bubble on the homepage cover
+
+    blurb: 'Exploring design approaches for visualizing and addressing VLM inferential privacy risks.',
+    tags: ['Research', 'HCI', 'Privacy', 'AI'],
+    summary: 'How can we effectively visualize and address VLM inferential privacy risks across different contexts?',
+    preface: 'This page provides a high level overview of ongoing research currently under review. The title and content have been adapted for portfolio presentation and do not reproduce the submitted paper.',
+    meta: {
+      Year: '2026',
+      Research: 'Conference submission',
+      'My role': 'Eliciting Design Space',
+      Status: 'Under review',
+    },
+    // Kept to introductory material only while the paper is under anonymous review.
+    cover: { src: 'assets/projects/vlm-inferential-privacy/web/inference-example.jpg', position: '60% 50%' },
+    hero: false,
+    sections: [
+      {
+        label: 'Background',
+        text: 'VLM inferential privacy risks arise when sensitive personal attributes can be inferred from visual contexts through VLM reasoning. These risks are difficult to address because the inference process can be opaque and difficult to understand.',
+      },
+      {
+        label: 'Gap',
+        text: 'Existing research has benchmarked inferential privacy risks and shown that users are often unaware of them. However, practical methods and tools for addressing these risks remain limited, with existing defenses primarily manual and text based.',
+      },
+    ],
+  },
+
   {
     slug: 'asapoop',
     title: 'ASAPoop',
