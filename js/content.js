@@ -169,7 +169,7 @@ window.PROJECTS = [
     blurb: 'An easy, open-source robotic hand kit for education and research',
     tags: ['Robotics', 'Open Source', 'Physical Computing', 'Assistive Technology'],
     summary:
-      'A low-cost, open-source robotic hand kit that is easy to print, assemble and program, and dexterous enough to form Cued Speech handshapes. The next step after <a href="cueddata">CuedData</a>.',
+      'A low-cost, open-source robotic hand kit that is easy to assemble and program, and dexterous enough to form Cued Speech handshapes. The next step after <a href="cueddata">CuedData</a>.',
     meta: {
       Timeline: 'August 2026 – present',
       Role: 'Designer & Developer',
@@ -258,10 +258,7 @@ window.PROJECTS = [
         label: 'Interface',
         split: true, // text on the left, recording on the right
         heading: 'In progress',
-        text: [
-          'Next is a website that walks people through assembling the hand and then lets them operate it, choosing a handshape and watching the hand form it.',
-          'People will have two options: download the 3D files and source the listed motors themselves, or order a ready-to-build kit from me with the printed hand and every motor included. Either way, they assemble it with the tutorials, connect it to the website, and start using it right away.',
-        ],
+        text: 'Next is a website that walks people through assembling the hand and then lets them operate it, choosing a handshape and watching the hand form it.',
         media: [
           { src: 'assets/projects/cuedkit/web/hand-assembly-page.mp4', poster: 'assets/projects/cuedkit/web/hand-assembly-page-poster.jpg', ratio: '1710 / 1696', caption: 'Hand assembly tutorial page (in progress)' },
         ],
