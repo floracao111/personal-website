@@ -219,6 +219,7 @@
   function Section(s) {
     const paras = [].concat(s.text || []);
     const after = [].concat(s.textAfter || []);
+    const below = [].concat(s.textBelow || []);
     const hasText = s.label || s.heading || paras.length || s.quote || s.stat || s.list || s.table || s.note;
     const media = s.media || [];
     return `
@@ -249,6 +250,11 @@
             ? s.columns === 'row'
               ? `<div class="block__media block__media--row">${Row(media)}</div>`
               : `<div class="block__media cols-${s.columns || 1}">${media.map((m) => Media(m)).join('')}</div>`
+            : ''
+        }
+        ${
+          below.length // paragraphs set under the media, e.g. describing what the clips show
+            ? `<div class="block__below block__body">${below.map((t) => `<p>${t}</p>`).join('')}</div>`
             : ''
         }
       </section>`;

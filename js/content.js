@@ -96,11 +96,7 @@ window.PROJECTS = [
       { src: 'assets/projects/cueddata/web/voibook.png', alt: 'Voibook', coverHeight: 20 },
       { src: 'assets/projects/cueddata/web/hkustgz.png', alt: 'HKUST (Guangzhou)', height: 36 },
     ],
-    cover: {
-      src: 'assets/projects/cueddata/web/production-page-demo.mp4?v=2',
-      poster: 'assets/projects/cueddata/web/production-page-demo-poster.jpg?v=2',
-      position: 'left', // keep the robot hand in the 3:2 homepage crop
-    },
+    cover: { src: 'assets/projects/cueddata/web/cover2.jpg' }, // pre-shrunk to 1200px so the tile stays sharp
     intro: {
       text: [
         '<a href="https://www.voibook.com/" target="_blank" rel="noopener">Voibook</a> is a hearing accessibility technology company in China. This year, one of its goals is to promote Cued Speech in China, to support literacy and speech rehabilitation for deaf people. <span class="aside">(Cued Speech has already demonstrated educational value internationally, but Mandarin Cued Speech is still in the early stages of adoption.)</span>',
@@ -278,7 +274,7 @@ window.PROJECTS = [
     blurb: 'Little worker picking out tokens all day',
     tags: ['Robotics', 'AI', 'Installation'],
     summary:
-      'A robotic arm simulating the behavior of large language models with an unthinking nature as it picks up bolts and nuts like tokens, representing the way AI systems process language. </br> </br> I imagined ChatGPT to be a little worker who spends all day picking up bolts and nuts, just like how a large language model picks out tokens. </br>  </br> An OpenAI API powered interface allows audience to chat with the little worker, and control the temperature setting.',
+      'LLMs predict the next most probable token to create text. </br> </br> I imagined ChatGPT as a little factory worker who spends all day picking up tokens to create sentences. </br> </br> A literal “Language Machine”.',
     meta: {
       Year: '2024',
       Medium: 'Magnetic screwdriver, bolts and nuts, Arduino Uno, 3D prints, servo motors, OpenAI API',
@@ -288,14 +284,17 @@ window.PROJECTS = [
     sections: [
       {
         label: 'Interface',
+        text: 'An OpenAI API powered interface allows audience to chat with the little worker, and control the temperature setting.',
         columns: 2,
         media: [
           { src: 'assets/projects/literal-language-machine/web/chatting-with-bot-1.mp4', poster: 'assets/projects/literal-language-machine/web/chatting-with-bot-1-poster.jpg', ratio: '4 / 3' },
           { src: 'assets/projects/literal-language-machine/web/webpage-screenshot.png', ratio: '4 / 3', fit: 'contain' },
         ],
+        textBelow: 'Low temperature, the worker sounds sane, normal.',
       },
       {
         columns: 2,
+        textBelow: 'High temperature, the worker becomes disturbed, sentences break into random tokens.',
         media: [
           { src: 'assets/projects/literal-language-machine/web/chatting-with-bot-2.mp4', poster: 'assets/projects/literal-language-machine/web/chatting-with-bot-2-poster.jpg', ratio: '16 / 9' },
           { src: 'assets/projects/literal-language-machine/web/chatting-with-bot-result.mp4', poster: 'assets/projects/literal-language-machine/web/chatting-with-bot-result-poster.jpg', ratio: '16 / 9' },

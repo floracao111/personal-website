@@ -851,6 +851,11 @@ img, video {
   margin-top: 16px;
 }
 
+/* text set under a block's media */
+.block__media + .block__below {
+  margin-top: 16px;
+}
+
 .block__media {
   display: grid;
   gap: var(--media-gap);
