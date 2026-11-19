@@ -348,15 +348,15 @@ img, video {
 /* "In progress" / "Under review" label, always visible on the cover */
 .tile__status {
   position: absolute;
-  top: 10px;
-  left: 12px;
+  top: 8px;
+  left: 8px;
   z-index: 1;
-  padding: 4px 10px;
+  padding: 3px 7px;
   border-radius: 0; /* sharp rectangle */
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.55);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  font: italic 400 12px/1.2 var(--sans);
+  font: italic 400 10.5px/1.2 var(--sans);
   color: var(--fg);
   pointer-events: none;
 }
@@ -894,17 +894,20 @@ img, video {
 /* an acknowledgement under a section: a little extra space and a small label leading into the text */
 .block__body .note {
   margin-top: 1.6em;
-  color: #6e6e73;
+}
+
+/* "With thanks": a small title over the note, like a section label */
+.block__body .note__label {
+  margin-top: 32px;
+  font: italic 400 13px/1.4 var(--sans);
+}
+
+.block__body .note__label + .note {
+  margin-top: 10px;
 }
 
 .block__body .note a {
   color: inherit;
-}
-
-.note__label {
-  margin-right: 0.3em;
-  font-style: italic;
-  color: var(--muted);
 }
 
 /* a side note inside a paragraph, a step lighter than the main text */

@@ -90,33 +90,36 @@ window.PROJECTS = [
       Timeline: 'Mar – July 2026',
       Role: 'Designer & Developer',
       Sponsor: 'Voibook',
+      Patent: { text: 'This project led to a broader Cued Speech robotic system, for which we have a patent pending.', labelColor: '#fd6e63' }, // Voibook's logo orange
     },
+    status: 'Patent pending', // bubble on the homepage cover
     logosOnCover: true, // also show the logos, small, on the homepage cover
     logos: [
       { src: 'assets/projects/cueddata/web/voibook.png', alt: 'Voibook', coverHeight: 20 },
       { src: 'assets/projects/cueddata/web/hkustgz.png', alt: 'HKUST (Guangzhou)', height: 36 },
     ],
-    cover: { src: 'assets/projects/cueddata/web/cover2.jpg' }, // pre-shrunk to 1200px so the tile stays sharp
+    cover: { src: 'assets/projects/cueddata/web/cover3.jpg' }, // pre-shrunk to 1200px so the tile stays sharp
     intro: {
+      label: 'Background',
       text: [
         '<a href="https://www.voibook.com/" target="_blank" rel="noopener">Voibook</a> is a hearing accessibility technology company in China. This year, one of its goals is to promote Cued Speech in China, to support literacy and speech rehabilitation for deaf people. <span class="aside">(Cued Speech has already demonstrated educational value internationally, but Mandarin Cued Speech is still in the early stages of adoption.)</span>',
         'After a chat with the founder, we started imagining how robotics could help address this challenge.',
-        'So, I developed CuedData, a system that automates the generation of standardized Mandarin Cued Speech recordings for AI recognition training and future speech education.',
+        'I developed CuedData, a system that automates the generation of standardized Mandarin Cued Speech recordings for AI recognition training and future speech education.',
       ],
       noteLabel: 'With thanks',
       note: '<a href="https://www.wicinternet.org/2024-01/22/c_976313.htm" target="_blank" rel="noopener">Shi Chengchuan</a> has been a true inspiration to me and many others. I’m grateful for the conversations that sparked this project and the opportunity to support Voibook’s mission.',
     },
-    // Portfolio pages — made with: zsh scripts/normalize-pages.sh <folder of page images> assets/projects/cueddata/web/pages
+    // Portfolio pages — pages 2–7 of "Flora Cao Portfolio.pdf", made with: osascript -l JavaScript scripts/pdf-pages.js <pdf> <folder>
     hero: {
       alt: 'CuedData portfolio',
-      ratio: '2000 / 1414',
+      ratio: '2000 / 1413',
       pages: [
-        'assets/projects/cueddata/web/pages/page-01.jpg',
-        'assets/projects/cueddata/web/pages/page-02.jpg',
-        'assets/projects/cueddata/web/pages/page-03.jpg',
-        'assets/projects/cueddata/web/pages/page-04.jpg',
-        'assets/projects/cueddata/web/pages/page-05.jpg',
-        'assets/projects/cueddata/web/pages/page-06.jpg',
+        'assets/projects/cueddata/web/pages/page-01.jpg?v=3',
+        'assets/projects/cueddata/web/pages/page-02.jpg?v=2',
+        'assets/projects/cueddata/web/pages/page-03.jpg?v=2',
+        'assets/projects/cueddata/web/pages/page-04.jpg?v=2',
+        'assets/projects/cueddata/web/pages/page-05.jpg?v=2',
+        'assets/projects/cueddata/web/pages/page-06.jpg?v=2',
       ],
     },
     sections: [

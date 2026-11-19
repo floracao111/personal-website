@@ -238,7 +238,7 @@
                    ${after.map((t) => `<p>${t}</p>`).join('')}
                    ${
                      s.note // e.g. an acknowledgement, set apart under its own small label
-                       ? `<p class="note">${s.noteLabel ? `<span class="note__label">${esc(s.noteLabel)} –</span>` : ''}${s.note}</p>`
+                       ? `${s.noteLabel ? `<p class="label note__label">${esc(s.noteLabel)}</p>` : ''}<p class="note">${s.note}</p>`
                        : ''
                    }
                  </div>
@@ -290,8 +290,8 @@
           ${
             meta.length
               ? `<dl class="project__meta">${meta
-                  .map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${
-                    v && v.href ? `<a href="${esc(v.href)}">${esc(v.text)}</a>` : esc(v)
+                  .map(([k, v]) => `<div><dt${v && v.labelColor ? ` style="color:${esc(v.labelColor)}"` : ''}>${esc(k)}</dt><dd>${
+                    v && v.href ? `<a href="${esc(v.href)}">${esc(v.text)}</a>` : esc(v && v.text !== undefined ? v.text : v)
                   }</dd></div>`)
                   .join('')}</dl>`
               : ''
