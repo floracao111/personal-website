@@ -521,7 +521,7 @@ window.PROJECTS = [
       {
         label: 'Ideation',
         text: [
-          'Massive factories and the physical labor shaped an era of transformation. The raw strength and versatility of steel and the human body is incredibly attractive.',
+          'Massive factories and the physical labor shaped an era of transformation. The raw strength and versatility of steel and the human body is magnetic.',
           'The projection combines black-and-white visuals of the human body and steel, distorted to highlight their shared strength and structure.',
         ],
         columns: 'row',
@@ -650,11 +650,10 @@ window.PROJECTS = [
     hero: { embed: 'https://player.vimeo.com/video/1019055871?h=f6af766b76', alt: 'Synapses — project video' },
     sections: [
       {
-        columns: 3,
+        columns: 2,
         media: [
           { src: 'assets/projects/synapses/web/img_9334.mp4', poster: 'assets/projects/synapses/web/img_9334-poster.jpg', ratio: '16 / 9' },
           { src: 'assets/projects/synapses/web/img_9329.mp4', poster: 'assets/projects/synapses/web/img_9329-poster.jpg', ratio: '16 / 9' },
-          { src: 'assets/projects/synapses/web/img_9184.mp4', poster: 'assets/projects/synapses/web/img_9184-poster.jpg', ratio: '16 / 9' },
         ],
       },
       {
