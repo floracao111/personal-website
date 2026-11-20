@@ -345,6 +345,16 @@ img, video {
   width: auto;
 }
 
+/* on a dark cover, the logos sit on the same frosted white as the status label */
+.tile__logos--panel {
+  top: 8px;
+  right: 8px;
+  padding: 3px 7px;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
 /* "In progress" / "Under review" label, always visible on the cover */
 .tile__status {
   position: absolute;
@@ -690,6 +700,7 @@ img, video {
 
 .block__body {
   max-width: 54em;
+  min-width: 0; /* a wide table scrolls inside its own box instead of widening the page */
 }
 
 .block__body h3 {
@@ -723,14 +734,12 @@ img, video {
   letter-spacing: -0.02em;
 }
 
-/* A cited figure: the number in blue, the same size as the sentence it starts */
+/* A cited figure: the number the same grey and size as the sentence it starts */
 .stat {
   margin: 4px 0 1.4em;
 }
 
-.block__body .stat__value {
-  color: var(--accent);
-}
+.block__body p + .stat { margin: 1.2em 0 0; } /* when the figure closes a section */
 
 .block__body .stat__text {
   font-size: 17px;
@@ -748,6 +757,11 @@ img, video {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px var(--gap-x);
+}
+
+/* a list after paragraphs gets the same breathing room as a new paragraph */
+.block__body p + .qa {
+  margin-top: 1.6em;
 }
 
 
@@ -830,6 +844,78 @@ img, video {
 
 .gap__icon--yes { stroke: var(--accent); }
 .gap__icon--no { stroke: var(--ph-ink); }
+
+/* pink version, as in the CuedKit portfolio: blush rows, pink highlight, green ticks */
+.gap--pink tbody tr > * { background: #fdf5f6; }
+.gap--pink tbody .gap__highlight > * { background: #fde1e7; }
+.gap--pink .gap__icon--yes { stroke: #3f9d5d; }
+.gap--pink .gap__icon--no { stroke: #e3aab6; }
+
+/* paragraphs side by side, two to a row (e.g. design principles) */
+.text-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gap-x);
+  row-gap: 1em;
+}
+
+.block__body .text-pair p { margin: 0; }
+
+@media (max-width: 560px) {
+  .text-pair { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* a picture beside a passage, as wide as one of three images in a row */
+.block__body:has(> .beside:not(.beside--short)) { max-width: none; } /* span the full media width, like a row of images */
+.beside {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) calc((100% - 2 * var(--media-gap)) / 3);
+  column-gap: var(--gap-x);
+  align-items: start;
+}
+
+.beside__media { min-width: 0; }
+
+/* a second heading inside the same section starts as far down as a new section would */
+.block__body h3.then { margin-top: clamp(32px, 3vw, 48px); }
+
+/* short: the picture sits beside the paragraphs only, exactly as tall as them, and its shape sets its width */
+.beside--short {
+  display: block;
+  position: relative;
+}
+
+.beside--short .beside__text { width: var(--beside-text, 75%); }
+
+.beside--short .beside__media {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--beside-text, 75%) + var(--gap-x));
+  aspect-ratio: 9 / 16;
+}
+
+.beside--short .beside__media > * {
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+  .beside { grid-template-columns: minmax(0, 1fr); }
+  /* on a phone the picture stays small: it floats at the top right and the text wraps around it */
+  .beside--short { display: flow-root; }
+  .beside--short .beside__text { width: auto; }
+  .beside--short .beside__media { position: static; float: right; width: 34%; margin: 4px 0 8px 14px; }
+  .beside--tall .beside__media { width: 60%; } /* a tall video shouldn't fill a whole phone screen */
+  .beside__media { margin-top: 16px; }
+}
+
+/* "How it works": a big title that opens the steps below it */
+.block__title {
+  margin: clamp(16px, 2vw, 32px) 0 6px;
+  font: 700 clamp(24px, 2.4vw, 32px)/1.2 var(--sans);
+  letter-spacing: -0.02em;
+}
 
 /* space between an intro section (e.g. Background) and the hero below it */
 .block + .reader,
@@ -1007,3 +1093,16 @@ img, video {
     transition: none !important;
   }
 }
+
+/* pink text, e.g. the design question (same pink as the playful links) */
+.pink { color: #e8578a; }
+.block__body .big { font-size: 20px; line-height: 1.45; } /* a step up from body text */
+
+/* a playful link: pink text and underline */
+a.pop,
+.block__body a.pop {
+  color: #e8578a;
+  text-decoration-color: currentColor;
+}
+
+a.pop:hover { color: #c73b70; }

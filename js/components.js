@@ -151,7 +151,7 @@
           ${Media(p.cover, { ratio: window.SITE.coverRatio || '3 / 2', label: p.title, className: 'tile__media' })}
           ${
             p.coverLogos || (p.logosOnCover && p.logos)
-              ? `<span class="tile__logos">${(p.coverLogos || p.logos)
+              ? `<span class="tile__logos${p.coverLogosPanel ? ' tile__logos--panel' : ''}">${(p.coverLogos || p.logos)
                   .map((l) => `<img src="${esc(l.src)}" alt="${esc(l.alt || '')}" style="height:${l.coverHeight || Math.round((l.height || 26) * 0.55)}px">`)
                   .join('')}</span>`
               : ''
@@ -181,7 +181,7 @@
   // table: { columns: ['Open Source', …], rows: [['Yale OpenHand', true, false, …], …], highlight: 'CuedKit' }
   function GapTable(t) {
     return `
-      <div class="gap">
+      <div class="gap${t.tone ? ` gap--${esc(t.tone)}` : ''}">
         <table>
           <thead><tr><td></td>${t.columns.map((c) => `<th scope="col">${c}</th>`).join('')}</tr></thead>
           <tbody>${t.rows
@@ -227,15 +227,33 @@
         ${
           hasText
             ? `<div class="block__text">
+                 ${s.title ? `<h2 class="block__title">${esc(s.title)}</h2>` : '' /* a big title that opens a run of sections */}
                  ${s.label ? `<p class="label">${esc(s.label)}</p>` : ''}
                  <div class="block__body">
-                   ${s.heading ? `<h3>${s.heading}</h3>` : '' /* HTML allowed */}
-                   ${s.stat ? Stat(s.stat) : ''}
-                   ${paras.map((t) => `<p>${t}</p>`).join('')}
-                   ${s.quote ? `<p class="quote">${s.quote}</p>` : ''}
-                   ${s.list ? List(s.list) : ''}
-                   ${s.table ? GapTable(s.table) : ''}
-                   ${after.map((t) => `<p>${t}</p>`).join('')}
+                   ${(() => {
+                     const tall = s.beside && s.beside.tall; // the picture runs from the heading down, beside every part of the text
+                     const head =
+                       (s.heading ? `<h3>${s.heading}</h3>` : '') + /* HTML allowed */
+                       (s.stat && !s.statAfter ? Stat(s.stat) : ''); // statAfter: the figure closes the section instead
+                     const ps = paras.map((t) => `<p>${t}</p>`).join('') + (s.stat && s.statAfter ? Stat(s.stat) : '');
+                     const short = s.beside && s.beside.short; // a small picture beside the paragraphs only, exactly as tall as them
+                     const flow = // the paragraphs and what follows them in the text column
+                       (s.textPair // paragraphs side by side, two to a row
+                         ? `<div class="text-pair">${ps}</div>`
+                         : short
+                           ? `<div class="beside beside--short"${s.beside.textWidth ? ` style="--beside-text:${esc(s.beside.textWidth)}"` : ''}><div class="beside__media">${Media(s.beside)}</div><div class="beside__text">${tall ? head : ''}${ps}</div></div>` /* media first, so on a phone it can float with the text wrapping round it */
+                           : ps) +
+                       (s.quote ? `<p class="quote">${s.quote}</p>` : '') +
+                       (s.list ? List(s.list) : '') +
+                       (s.table ? GapTable(s.table) : '') +
+                       after.map((t) => `<p>${t}</p>`).join('') +
+                       [].concat(s.then || []) // more headed parts in the same text column, e.g. to share one picture
+                         .map((t) => `<h3 class="then">${t.heading}</h3>${[].concat(t.text || []).map((x) => `<p>${x}</p>`).join('')}`)
+                         .join('');
+                     return s.beside && !short // a picture or video to the right of all that, one-third of a row wide
+                       ? `${tall ? '' : head}<div class="beside${tall ? ' beside--tall' : ''}"><div class="beside__text">${tall ? head : ''}${flow}</div><div class="beside__media">${Media(s.beside)}</div></div>`
+                       : (short && tall ? '' : head) + flow;
+                   })()}
                    ${
                      s.note // e.g. an acknowledgement, set apart under its own small label
                        ? `${s.noteLabel ? `<p class="label note__label">${esc(s.noteLabel)}</p>` : ''}<p class="note">${s.note}</p>`

@@ -95,8 +95,8 @@ window.PROJECTS = [
     status: 'Patent pending', // bubble on the homepage cover
     logosOnCover: true, // also show the logos, small, on the homepage cover
     logos: [
-      { src: 'assets/projects/cueddata/web/voibook.png', alt: 'Voibook', coverHeight: 20 },
-      { src: 'assets/projects/cueddata/web/hkustgz.png', alt: 'HKUST (Guangzhou)', height: 36 },
+      { src: 'assets/projects/cueddata/web/voibook.png', alt: 'Voibook', height: 30, coverHeight: 20 },
+      { src: 'assets/projects/cueddata/web/hkustgz.png', alt: 'HKUST (Guangzhou)', height: 50, coverHeight: 20 },
     ],
     cover: { src: 'assets/projects/cueddata/web/cover3.jpg' }, // pre-shrunk to 1200px so the tile stays sharp
     intro: {
@@ -168,54 +168,62 @@ window.PROJECTS = [
   {
     slug: 'cuedkit',
     title: 'CuedKit',
-    status: 'In progress', // shown on the homepage cover and at the top of the project page
     blurb: 'An easy, open-source robotic hand kit for education and research',
-    tags: ['Robotics', 'Open Source', 'Physical Computing', 'Assistive Technology'],
+    tags: ['Robotics', 'Education', 'Open Source', 'Assistive Technology'],
     summary:
-      'A low-cost, open-source robotic hand kit that is easy to assemble and program, and dexterous enough to form Cued Speech handshapes. The next step after <a href="cueddata">CuedData</a>.',
+      'CuedKit is a low-cost robotic hand and arm kit that performs Mandarin Cued Speech. </br> </br> Anyone can order a kit from me, available at the cost of materials. It includes the printed hand and arm, the electronics and the face sheet, plus video assembly guides. </br> </br> Later, the user can also follow the course to play and learn.',
     meta: {
-      Timeline: 'August 2026 – present',
+      Timeline: 'Aug – Oct 2026',
       Role: 'Designer & Developer',
-      Status: 'In progress',
+      Position: 'Research Assistant to Prof. Li Liu, HKUST GZ',
     },
-    logo: 'assets/projects/cuedkit/web/cuedkit-logo-color.svg',
+    logo: 'assets/projects/cuedkit/web/cuedkit-logo.svg',
+    logosOnCover: true, // also show the logo, small, on the homepage cover
+    coverLogosPanel: true, // the Blender cover is dark, so the logo sits on the same frosted backing as the status labels
+    logos: [{ src: 'assets/projects/cueddata/web/hkustgz.png', alt: 'HKUST (Guangzhou)', height: 50, coverHeight: 20 }], // beside the title, same size as on CuedData's
     cover: { src: 'assets/projects/cuedkit/web/cover-blender.mp4', poster: 'assets/projects/cuedkit/web/cover-blender-poster.jpg' },
-    heroRow: true,
+    heroRow: true, // side by side at the same height
     hero: [
-      { src: 'assets/projects/cuedkit/web/current-2x3.mp4', poster: 'assets/projects/cuedkit/web/current-2x3-poster.jpg', ratio: '2 / 3', alt: 'CuedKit hand on its arm, wired up' },
-      { src: 'assets/projects/cuedkit/web/hand.mp4', poster: 'assets/projects/cuedkit/web/hand-poster.jpg', ratio: '16 / 9', alt: 'CuedKit hand moving' },
-      { src: 'assets/projects/cuedkit/web/hand2.mp4', poster: 'assets/projects/cuedkit/web/hand2-poster.jpg', ratio: '16 / 9', alt: 'CuedKit hand moving' },
+      { src: 'assets/projects/cuedkit/web/concept-2.jpg', ratio: '1580 / 1162', alt: 'Concept: a child learning Cued Speech with CuedKit and a laptop' },
+      { src: 'assets/projects/cuedkit/web/finished-hand.jpg', ratio: '4 / 3', alt: 'The finished CuedKit hand and arm' },
     ],
     sections: [
       {
-        label: 'Origin',
+        title: 'Origin',
         text: [
-          'While building <a href="cueddata">CuedData</a>, I needed a robotic hand. None were easy to print or assemble, so I bought a prefabricated one. It wasn’t cheap, and it still couldn’t make one of the handshapes (the peace sign ✌️). The more dexterous options cost far more.',
-          'So I’m building my own: easy to print, simple to assemble, and just dexterous enough for Cued Speech. I’m packaging it as a kit and open-sourcing it, so others in need don’t run into the same problem.',
-        ],
-      },
-      {
-        list: [
-          { term: 'Who it’s for', text: 'Teachers, speech therapists, research labs, and curious families' },
-          { term: 'What they need', text: 'More affordable, hands-on learning resources' },
+          'While building <a href="cueddata">CuedData</a>, I needed a robotic hand. There were no open-source robotic hands that were easy to print or assemble, so I bought a prefabricated one online. It was not cheap, and it still was not dexterous enough to perform one of the handshapes (a peace sign). The more dexterous options were significantly more expensive.',
+          'So I decided to build my own: simple to assemble, and just dexterous enough for Cued Speech. I designed it as an open-source kit available at cost, so others would not run into the same problem.',
         ],
       },
       {
         heading: 'Why a physical robot?',
         text: [
-          'Physical teaching aids like solar system models and skeletons are still used, even where a video could replace them. A robotic hand can sit on a desk, hold a shape, and be played with.',
-          'At HKUST (Guangzhou), I met the Mandarin Cued Speech team. They go into special schools and teach students in person rather than sending videos.',
+          'Physical teaching aids remain useful because they can be observed, manipulated, and revisited in real space. A robotic hand can sit on a desk, hold a Cued Speech shape, and be interacted with directly.',
+          'Working with the Mandarin Cued Speech team at HKUST GZ, I understood they travel to special schools to teach students face-to-face rather than relying on video lessons.',
         ],
         stat: {
           value: '73%',
-          text: 'of studies comparing them found people respond more positively to a robot in the room than the same robot on a screen.',
+          text: 'of significant results favored physically present robots over virtual agents shown on a screen.',
           source: 'Li, International Journal of Human-Computer Studies, 2015',
         },
+        statAfter: true, // the figure comes after the paragraphs
+        // a small video nested beside this section's narrowed text, exactly as tall as it
+        beside: { src: 'assets/projects/cuedkit/web/current.mp4', poster: 'assets/projects/cuedkit/web/current-poster.jpg', ratio: '9 / 16', alt: 'CuedKit cueing', short: true, tall: true, textWidth: '74%' },
+      },
+      {
+        heading: 'Who’s it for?',
+        text: [
+          'Learners, educators and researchers.',
+          'Today, learning often depends on specialized teachers and in-person instruction. CuedKit adds a reusable physical resource that can be used beyond the classroom.',
+        ],
       },
       {
         heading: 'Where CuedKit sits',
-        // one sentence per line
-        text: 'Yale OpenHand showed open-source hands can be research-grade.<br>e-NABLE showed open-source 3D prints can reach people in need.<br>Makeblock showed kits can be fun and educational.<br>Research labs and companies have shown robotic hands can demonstrate sign language.',
+        // one sentence per line, then the takeaway as its own paragraph, all before the table
+        text: [
+          'Yale OpenHand proved open-source hands can be research-level.<br>e-NABLE proved open-source 3D prints can reach real users in need.<br>Makeblock proved kits can be fun and educational.<br>Robotics labs proved robotic hands can demonstrate sign language.',
+          'CuedKit brings them together in a low-cost, open-source robotic hand for Cued Speech and potentially other visual communication methods.',
+        ],
         table: {
           columns: ['Open Source', 'Low Cost', 'Sign Language /<br>Cued Speech', 'Assemblable'],
           rows: [
@@ -226,30 +234,39 @@ window.PROJECTS = [
             ['CuedKit', true, true, true, true],
           ],
           highlight: 'CuedKit',
+          tone: 'pink',
         },
-        textAfter: 'CuedKit aims to be the first open-source, low-cost robotic hand kit built for language.',
       },
       {
-        label: 'Design question',
-        quote: 'How can I make an affordable, educational robotic hand that is easily available for people?',
+        heading: 'Design question',
+        text: '<span class="pink big">How do I make an affordable & educational robot hand easily available for people?</span>',
       },
       {
-        label: 'Robotic hand iterations',
+        heading: 'Design principles',
+        text: [
+          '<b>Affordable</b><br>Available at cost, with no profit.<br>Print-in-place, fewer parts.<br>Factory-free production.',
+          '<b>Educational</b><br>Learn through movements.<br>Structured lessons and quizzes.<br>Easy practice by typing and seeing every syllable cued.',
+        ],
+        textPair: true,
+      },
+      {
+        title: 'Robotic hand iterations',
         text: [
           'My goal was to print as many parts in place as possible, so the hand is easy to print and quick to put together.',
-          'The individual finger mechanism comes from <a href="https://makerworld.com/en/models/1772809-overengineered-mechanical-hand-v2-4-fingers" target="_blank" rel="noopener">Overengineered Mechanical Hand V2</a> by TLPOD on MakerWorld. I designed the rest of the hand around it.',
-          'The prefabricated hand I used in <a href="cueddata">CuedData</a> couldn’t move its index finger laterally, so it couldn’t form the 8th handshape. This new hand gives the index finger its own servo, so it can achieve the peace sign, without adding complexity to the rest of the hand.',
+          '<a href="cueddata">CuedData</a>’s prefabricated hand couldn’t move its index finger sideways, so it couldn’t form the 8th handshape. CuedKit gives the index finger its own servo.',
         ],
         columns: 3,
         media: [
           { src: 'assets/projects/cuedkit/web/index-rotate-blender.mp4', poster: 'assets/projects/cuedkit/web/index-rotate-blender-poster.jpg', ratio: '4 / 3', caption: 'Designing in Blender' },
           { src: 'assets/projects/cuedkit/web/iterations1.jpg', ratio: '4 / 3', caption: 'Iterations' },
           { src: 'assets/projects/cuedkit/web/index-open.jpg?v=2', ratio: '4 / 3', caption: 'Index finger open' },
+          { src: 'assets/projects/cuedkit/web/hand2.mp4', poster: 'assets/projects/cuedkit/web/hand2-poster.jpg', ratio: '4 / 3', alt: 'The hand moving', caption: 'Hand inside' },
+          { src: 'assets/projects/cuedkit/web/finished-hand.jpg', ratio: '4 / 3', alt: 'The finished hand and arm', caption: 'Finished hand, front' },
+          { src: 'assets/projects/cuedkit/web/finished-hand-2.jpg', ratio: '4 / 3', alt: 'The finished hand and arm', caption: 'Finished hand, side' },
         ],
       },
       {
-        label: 'Assembly tutorial',
-        text: 'Step-by-step tutorials like these will live on the CuedKit website.',
+        text: 'Step-by-step guides like these are live on the website. See more in the next section.',
         columns: 3,
         media: [
           { src: 'assets/projects/cuedkit/web/tutorial1.mp4', poster: 'assets/projects/cuedkit/web/tutorial1-poster.jpg', ratio: '16 / 9' },
@@ -258,12 +275,49 @@ window.PROJECTS = [
         ],
       },
       {
-        label: 'Interface',
-        split: true, // text on the left, recording on the right
-        heading: 'In progress',
-        text: 'Next is a website that walks people through assembling the hand and then lets them operate it, choosing a handshape and watching the hand form it.',
+        title: 'How it works',
+        label: 'Step 1',
+        heading: 'Order the kit',
+        text: 'Order a kit for about 50 USD (~330 CNY) from the website. It is available at cost, with no profit. This is nearly 60% cheaper than my previous version with a prefabricated hand.',
+        beside: { src: 'assets/projects/cuedkit/web/concept-1.jpg', ratio: '1536 / 1024', alt: 'Concept: a child opening the kit' }, // same height as the passage
+      },
+      {
+        label: 'Step 2',
+        heading: 'Receive the kit',
+        text: 'The kit arrives with the printed hand and arm, the electronics, and a face sheet printed on A4 that marks where the arm points for each hand position.',
         media: [
-          { src: 'assets/projects/cuedkit/web/hand-assembly-page.mp4', poster: 'assets/projects/cuedkit/web/hand-assembly-page-poster.jpg', ratio: '1710 / 1696', caption: 'Hand assembly tutorial page (in progress)' },
+          { src: 'assets/projects/cuedkit/web/parts-list.jpg?v=2', ratio: '2000 / 548', alt: 'Parts list: hand, arm, electronics and the face sheet' },
+        ],
+      },
+      {
+        label: 'Step 3',
+        split: true, // text on the left, recording on the right
+        heading: 'Follow guided assembly',
+        text: 'The user follows the step-by-step video tutorials to assemble the hand and the arm.',
+        media: [
+          { src: 'assets/projects/cuedkit/web/hand-assembly-page.mp4', poster: 'assets/projects/cuedkit/web/hand-assembly-page-poster.jpg', ratio: '1710 / 1696', caption: 'Hand assembly page' },
+        ],
+      },
+      {
+        label: 'Step 4',
+        heading: 'Learn through the course',
+        text: [
+          'Finally, the user connects the hand to the web course, which teaches Cued Speech in thirteen short lessons, from the 8 handshapes and 5 positions to full sentences.',
+          'On the pinyin chart, tap any sound and watch the hand cue it. Later, learners build the cue themselves by picking the handshape and position.',
+          '<a class="pop" href="https://floracao111.github.io/cuedkit/download.html" target="_blank" rel="noopener">Preview the course website here!</a>',
+        ],
+        columns: 'row',
+        media: [
+          { src: 'assets/projects/cuedkit/web/course-alphabet.jpg', ratio: '1000 / 1076', caption: 'Pinyin chart' },
+          { src: 'assets/projects/cuedkit/web/course-lesson.jpg', ratio: '1400 / 876', caption: 'Lesson: tap and watch the hand' },
+        ],
+      },
+      {
+        title: 'What’s next',
+        text: [
+          'CuedKit’s code and course are open source on <a class="pop" href="https://github.com/floracao111/cuedkit" target="_blank" rel="noopener">GitHub!</a>',
+          'I am developing original finger mechanics so the whole hand can be fully open source, free for anyone to download and print.',
+          'The current finger mechanism is adapted from <a href="https://makerworld.com/en/models/1772809-overengineered-mechanical-hand-v2-4-fingers" target="_blank" rel="noopener">Overengineered Mechanical Hand V2</a>, a licensed design by <a href="https://makerworld.com/%40user_940602127" target="_blank" rel="noopener">TLPOD on MakerWorld</a>.',
         ],
       },
     ],
@@ -361,12 +415,13 @@ window.PROJECTS = [
     summary:
       'What if one day, you could order a toilet just like you order a ride? </br> ASAPoop is an interactive game where players ride a stationary bike to deliver mobile toilets in the city. Built with a bike and a toilet combined with Arduino and Unity, the game uses bike riding as an alt controller for a toilet delivery service.',
     meta: {
+      Context: 'Parsons DT Core Studio, group project: “Alternative Controller”',
+      Role: 'Concept, Arduino, Hardware Fabrication, Video',
       Year: '2025',
       Medium: 'Portable toilet, old bike, bike trainer, tachometer, bike bell, Arduino, motor, wood, 3D prints, Unity interactive game',
-      Role: 'Concept, Arduino, Hardware Fabrication, Video, Visual Identity',
-      Professor: 'Sven Travis',
       Collaborators:
         'Jiazhen Luo: Concept, Arduino, Hardware Fabrication; Daniel Meng: Game Development; Mere Cui: Game Illustration',
+      Professor: 'Sven Travis',
     },
     logo: 'assets/projects/asapoop/web/asapoop-logo.png',
     // school logo, small, top-right of the homepage cover only
@@ -389,7 +444,15 @@ window.PROJECTS = [
         ],
       },
       {
-        label: 'Players',
+        label: 'How the system was built',
+        columns: 'row', // the two diagrams side by side at the same height
+        media: [
+          { src: 'assets/projects/asapoop/web/diagram-build.jpg', ratio: '1290 / 765', alt: 'The bike controller: bike bell and open circuit, Arduino tachometer, bike trainer, servo motor with hinges and linkage, reconstructed bike parts' },
+          { src: 'assets/projects/asapoop/web/diagram-flow.jpg', ratio: '1535 / 750', alt: 'How a game runs: a request comes in, the tachometer and bell send real-time signals to Unity, and on success the toilet seat opens' },
+        ],
+      },
+      {
+        label: 'Playtests',
         columns: 3,
         media: [
           { src: 'assets/projects/asapoop/web/real-player1.mp4', poster: 'assets/projects/asapoop/web/real-player1-poster.jpg', ratio: '3 / 4' },
