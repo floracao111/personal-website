@@ -90,7 +90,7 @@ window.PROJECTS = [
       Timeline: 'Mar – July 2026',
       Role: 'Designer & Developer',
       Sponsor: 'Voibook',
-      Patent: { text: 'This project led to a broader Cued Speech robotic system, for which we have a patent pending.', labelColor: '#fd6e63' }, // Voibook's logo orange
+      Patent: { text: 'This project led to a broader Cued Speech robotic system, for which we have a patent pending', labelColor: '#fd6e63' }, // Voibook's logo orange
     },
     status: 'Patent pending', // bubble on the homepage cover
     logosOnCover: true, // also show the logos, small, on the homepage cover
@@ -102,7 +102,7 @@ window.PROJECTS = [
     intro: {
       label: 'Background',
       text: [
-        '<a href="https://www.voibook.com/" target="_blank" rel="noopener">Voibook</a> is a hearing accessibility technology company in China. This year, one of its goals is to promote Cued Speech in China, to support literacy and speech rehabilitation for deaf people. <span class="aside">(Cued Speech has already demonstrated educational value internationally, but Mandarin Cued Speech is still in the early stages of adoption.)</span>',
+        '<a href="https://www.voibook.com/" target="_blank" rel="noopener">Voibook</a> is a prominent hearing accessibility technology company in China. This year, one of its goals is to promote Cued Speech in China, to support literacy and speech rehabilitation for deaf people. <span class="aside">(Cued Speech has already demonstrated educational value internationally, but Mandarin Cued Speech is still in the early stages of adoption.)</span>',
         'After a chat with the founder, we started imagining how robotics could help address this challenge.',
         'I developed CuedData, a system that automates the generation of standardized Mandarin Cued Speech recordings for AI recognition training and future speech education.',
       ],
@@ -175,7 +175,7 @@ window.PROJECTS = [
     meta: {
       Timeline: 'Aug – Oct 2026',
       Role: 'Designer & Developer',
-      Position: 'Research Assistant to Prof. Li Liu, HKUST GZ',
+      Position: 'Research Assistant to Prof. Li Liu at HKUST GZ',
     },
     logo: 'assets/projects/cuedkit/web/cuedkit-logo.svg',
     logosOnCover: true, // also show the logo, small, on the homepage cover
@@ -317,7 +317,7 @@ window.PROJECTS = [
         text: [
           'CuedKit’s code and course are open source on <a class="pop" href="https://github.com/floracao111/cuedkit" target="_blank" rel="noopener">GitHub!</a>',
           'I am developing original finger mechanics so the whole hand can be fully open source, free for anyone to download and print.',
-          'The current finger mechanism is adapted from <a href="https://makerworld.com/en/models/1772809-overengineered-mechanical-hand-v2-4-fingers" target="_blank" rel="noopener">Overengineered Mechanical Hand V2</a>, a licensed design by <a href="https://makerworld.com/%40user_940602127" target="_blank" rel="noopener">TLPOD on MakerWorld</a>.',
+          'The current finger mechanism is adapted from <a href="https://makerworld.com/en/models/1772809-overengineered-mechanical-hand-v2-4-fingers" target="_blank" rel="noopener">Overengineered Mechanical Hand V2</a>, a licensed design by <a href="https://makerworld.com/@user_940602127" target="_blank" rel="noopener">TLPOD on MakerWorld</a>.',
         ],
       },
     ],
