@@ -389,22 +389,17 @@ img, video {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Touch screens can't hover: show the caption under the cover instead. */
+/* Touch screens can't hover: no caption at all, just the covers.
+   The title stays readable to screen readers. */
 @media (hover: none) {
-  .grid {
-    row-gap: 28px;
-  }
-
   .tile__caption {
-    position: static;
-    padding: 10px 0 0;
-    background: none;
-    color: var(--fg);
-    opacity: 1;
-  }
-
-  .tile__blurb {
-    color: var(--muted);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 
