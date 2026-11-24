@@ -1114,8 +1114,16 @@ img, video {
   }
 
   .tile__title { font-size: 10px; font-weight: 300; } /* small and light, about the size of the status tag */
-  .grid { row-gap: 18px; }
   .tile__caption { padding-top: 6px; line-height: 1.3; }
+
+  /* phone homepage: small covers, left then right, with lots of white between them */
+  .grid { row-gap: 64px; }
+  .tile { width: 56%; }
+  .grid__item:nth-child(even) .tile { margin-left: auto; }
+
+  /* smaller covers, so the labels and logos on them shrink too */
+  .tile__logos { top: 6px; right: 6px; gap: 6px; transform: scale(0.7); transform-origin: top right; }
+  .tile__status { top: 6px; left: 6px; padding: 2px 5px; font-size: 9px; }
 }
 
 @media (max-width: 860px) {
