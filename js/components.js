@@ -48,8 +48,9 @@
     const label = item.alt || 'Pages';
     return `
       <figure class="reader" data-reader style="--page-ratio:${ratio}" aria-roledescription="carousel" aria-label="${esc(label)}">
-        <p class="reader__hint">
-          <span class="reader__hint-mouse">Scroll</span><span class="reader__hint-touch">Swipe</span> to read about this project →
+        <p class="reader__hint${item.star ? ' reader__hint--star' : ''}">
+          ${item.star ? `<svg class="reader__star" viewBox="0 0 24 24" aria-hidden="true" style="color:${esc(item.star)}"><path d="M12.00 1.90L14.61 9.41L22.56 9.57L16.22 14.37L18.52 21.98L12.00 17.44L5.48 21.98L7.78 14.37L1.44 9.57L9.39 9.41Z" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>` : '' /* a big star so nobody misses the pages */}
+          <span><span class="reader__hint-mouse">Scroll</span><span class="reader__hint-touch">Swipe</span> to read about this project →</span>
         </p>
         ${
           item.pages.length > 1

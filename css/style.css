@@ -637,6 +637,18 @@ img, video {
   color: var(--fg);
 }
 
+.reader__hint--star {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reader__star {
+  flex: none;
+  width: 40px;
+  height: 40px;
+}
+
 /* the instruction matches the device: mouse/trackpad vs touch screen */
 .reader__hint-touch { display: none; }
 

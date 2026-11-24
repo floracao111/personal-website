@@ -112,6 +112,7 @@ window.PROJECTS = [
     // Portfolio pages — pages 2–7 of "Flora Cao Portfolio.pdf", made with: osascript -l JavaScript scripts/pdf-pages.js <pdf> <folder>
     hero: {
       alt: 'CuedData portfolio',
+      star: '#fd6e63', // big star in Voibook's logo orange, before "Scroll to read about this project"
       ratio: '2000 / 1413',
       pages: [
         'assets/projects/cueddata/web/pages/page-01.jpg?v=3',
