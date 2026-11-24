@@ -408,6 +408,96 @@ img, video {
   }
 }
 
+/* Laptop homepage: small covers spread over exactly one window (nothing to scroll).
+   The one under the cursor opens to about twice its size; the top row opens downwards and
+   the bottom row upwards, so an open cover never leaves the window. */
+@media (min-width: 861px) and (hover: hover) {
+  [data-page='home'] {
+    --cover-w: min((100vw - var(--pad) - var(--panel)) / 6, (100dvh - 2 * var(--top)) * 0.28);
+    --cover-h: calc(var(--cover-w) * 0.625); /* 16 : 10, like SITE.coverRatio */
+    /* open: twice as big, or as big as it can be without touching the cover in the next row */
+    --open-w: min(var(--cover-w) * 2, ((100dvh - 2 * var(--top) - var(--cover-h)) / 3 - 12px) * 1.6);
+    --ease: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-page='home'] .layout {
+    column-gap: 0;
+    padding-right: 0;
+  }
+
+  [data-page='home'] .main {
+    padding: 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: var(--cover-h);
+    align-content: space-between;
+    gap: 0;
+    height: 100vh;
+    height: 100dvh;
+    padding-block: var(--top); /* first row level with the name, last row level with the copyright line */
+  }
+
+  .grid__item {
+    position: relative;
+  }
+
+  .tile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--cover-w);
+    transform: translate(-50%, -50%);
+    transition: width var(--ease);
+  }
+
+  .grid__item:nth-child(-n + 3) .tile {
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .grid__item:nth-last-child(-n + 3) .tile {
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  .tile:hover,
+  .tile:focus-visible {
+    z-index: 2;
+    width: var(--open-w);
+    outline: 0;
+  }
+
+  /* labels and logos appear with the title, once a cover is open */
+  .tile__status,
+  .tile__logos {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .tile:hover :is(.tile__status, .tile__logos, .tile__caption),
+  .tile:focus-visible :is(.tile__status, .tile__logos, .tile__caption) {
+    opacity: 1;
+    transition-delay: 0.18s;
+  }
+
+  .tile__caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 45%); /* the picture stays bright */
+  }
+
+  [data-page='home'] .project__foot {
+    position: fixed;
+    left: var(--pad);
+    bottom: var(--top);
+    width: var(--panel);
+    margin: 0;
+    line-height: 1;
+    text-align: left;
+  }
+}
+
 /* ---------- Project page --------------------------------------------------- */
 
 .project {
